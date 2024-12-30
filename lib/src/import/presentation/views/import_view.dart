@@ -22,15 +22,19 @@ class _ImportViewState extends ConsumerState<ImportView> {
       ),
       body: Visibility(
         visible: importData.isEmpty,
-        replacement: Column(children: [
-          ImportPreviewTable(),
-          Padding(
+        replacement: Column(
+          children: [
+            ImportPreviewTable(),
+            Padding(
               padding: EdgeInsets.only(top: 10),
               child: FilledButton(
-                  onPressed: () async =>
-                      await importService.importData(importData),
-                  child: Text("Import")))
-        ]),
+                onPressed: () async =>
+                    await importService.importData(importData),
+                child: Text("Import"),
+              ),
+            ),
+          ],
+        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
