@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:techbiz_rfid/src/common/route/app_routes_const.dart';
 import 'package:techbiz_rfid/src/common/util/drawer_item.dart';
 
 class HomepageView extends ConsumerStatefulWidget {
@@ -46,13 +48,17 @@ class _HomepageViewState extends ConsumerState<HomepageView> {
             MainMenuItem(
               icon: Icons.import_contacts,
               title: "Import Data",
+              onPressed: () => context.go(AppRoutesConst.import),
             ),
             MainMenuItem(
-              icon: Icons.warehouse, 
-              title: "Scanner"),
+              icon: Icons.warehouse,
+              title: "Scanner",
+              onPressed: () => context.goNamed(AppRoutesConst.scanner),
+            ),
             MainMenuItem(
               icon: Icons.import_export,
               title: "Export Data",
+              onPressed: () => context.goNamed(AppRoutesConst.export),
             ),
           ],
         ),
@@ -64,19 +70,21 @@ class _HomepageViewState extends ConsumerState<HomepageView> {
 class MainMenuItem extends StatelessWidget {
   final IconData icon;
   final String title;
+  final VoidCallback onPressed;
+
   const MainMenuItem({
     super.key,
     required this.icon,
     required this.title,
+    required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-      IconButton.outlined(        
+    return Column(children: [
+      IconButton.outlined(
         icon: Icon(icon),
-        onPressed: () {},
+        onPressed: onPressed,
       ),
       Text(title),
     ]);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:techbiz_rfid/src/common/route/app_route.dart';
+import 'package:techbiz_rfid/src/common/route/app_routes.dart';
 import 'package:techbiz_rfid/src/common/theme/techbiz_theme.dart';
 
 void main() async {
