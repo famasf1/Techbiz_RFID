@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:techbiz_rfid/src/common/route/app_routes.dart';
 import 'package:techbiz_rfid/src/common/theme/techbiz_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(const MainApp());
+  runApp(ProviderScope(child: const MainApp(),),);
 }
 
 class MainApp extends StatelessWidget {

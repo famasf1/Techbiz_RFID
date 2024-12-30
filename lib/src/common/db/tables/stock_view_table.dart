@@ -8,13 +8,13 @@ class StockView extends Table {
   TextColumn get productSerial => text().nullable()();
   IntColumn get price => integer()();
   IntColumn get quantity => integer()();
-  DateTimeColumn get createdDate => dateTime()();
+  DateTimeColumn get createdDate => dateTime().withDefault(Constant(DateTime.now()))();
 
   @ReferenceName('createdByUser')
-  IntColumn get createdBy => integer().nullable().references(User, #userId)();
+  IntColumn get createdBy => integer().nullable().references(User, #userId).withDefault(Constant(1))();
 
-  DateTimeColumn get updatedDate => dateTime()();
+  DateTimeColumn get updatedDate => dateTime().withDefault(Constant(DateTime.now()))();
 
   @ReferenceName('updatedByUser')
-  IntColumn get updatedBy => integer().nullable().references(User, #userId)();
+  IntColumn get updatedBy => integer().nullable().references(User, #userId).withDefault(Constant(1))();
 }
