@@ -78,17 +78,33 @@ class _ImportPreviewTableState extends ConsumerState<ImportPreviewTable> {
             DataColumn(
               label: Text("Product Code"),
               numeric: false,
-              onSort: (i, j) => 0,
+              onSort: (index, asc) => 0,
             ),
             DataColumn(
               label: Text("Product Name"),
+              numeric: false,
+              onSort: (index, asc) => ref.read(importDataStateProvider.notifier).sort(index, asc)
+            ),
+            DataColumn(
+              label: Text("Product Serial"),
               numeric: false,
               onSort: (i, j) => 0,
             ),
             DataColumn(
               label: Text("Product Price"),
-              numeric: false,
+              numeric: true,
               onSort: (i, j) => 0,
+            ),
+            DataColumn(
+              label: Text("Product Quantity"),
+              numeric: true,
+              onSort: (index, asc) {
+                if (asc) {
+                  return importData.sort((a, b) => a.quantity.compareTo(b.quantity));
+                } else {
+                  return importData.sort((a, b) => b.quantity.compareTo(a.quantity));
+                }
+              },
             ),
           ],
           dataRowMaxHeight: double.infinity,
@@ -99,6 +115,8 @@ class _ImportPreviewTableState extends ConsumerState<ImportPreviewTable> {
                   cells: [
                     DataCell(Text(stockInfo.productCode)),
                     DataCell(Text(stockInfo.productName)),
+                    DataCell(Text(stockInfo.productSerial)),
+                    DataCell(Text(stockInfo.price.toString())),
                     DataCell(Text(stockInfo.quantity.toString())),
                   ],
                 );

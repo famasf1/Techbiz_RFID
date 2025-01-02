@@ -10,11 +10,11 @@ class StockView extends Table {
   IntColumn get quantity => integer()();
   DateTimeColumn get createdDate => dateTime().withDefault(Constant(DateTime.now()))();
 
-  @ReferenceName('createdByUser')
+  @ReferenceName('stockCreatedByUser')
   IntColumn get createdBy => integer().nullable().references(User, #userId).withDefault(Constant(1))();
 
   DateTimeColumn get updatedDate => dateTime().withDefault(Constant(DateTime.now()))();
 
-  @ReferenceName('updatedByUser')
+  @ReferenceName('stockUpdatedByUser')
   IntColumn get updatedBy => integer().nullable().references(User, #userId).withDefault(Constant(1))();
 }

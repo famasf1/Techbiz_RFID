@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:techbiz_rfid/src/common/route/app_routes_const.dart';
@@ -53,12 +52,12 @@ class _HomepageViewState extends ConsumerState<HomepageView> {
             MainMenuItem(
               icon: Icons.warehouse,
               title: "Scanner",
-              onPressed: () => context.goNamed(AppRoutesConst.scanner),
+              onPressed: () => context.go(AppRoutesConst.scanner),
             ),
             MainMenuItem(
               icon: Icons.import_export,
               title: "Export Data",
-              onPressed: () => context.goNamed(AppRoutesConst.export),
+              onPressed: () => context.go(AppRoutesConst.export),
             ),
           ],
         ),
