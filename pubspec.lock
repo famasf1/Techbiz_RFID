@@ -874,15 +874,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
-  uhf_c72_plugin:
+  uhf6_plugin:
     dependency: "direct main"
     description:
       path: "."
-      ref: dev-namespace
-      resolved-ref: "33d34bd29b927c4cf922fce4268146d4eb592204"
-      url: "https://github.com/famasf1/uhf_c72_plugin.git"
+      ref: main
+      resolved-ref: "1ac677dce19de068cb863f466d197c38a962ed82"
+      url: "https://github.com/famasf1/uhf6_plugin.git"
     source: git
-    version: "1.0.0"
+    version: "0.0.1"
   uuid:
     dependency: transitive
     description:
