@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:techbiz_rfid/src/common/wrapper/interface/uhf_wrapper.dart';
 import 'package:techbiz_rfid/src/scanner/domain/interface/scanner_service.dart';
 import 'package:techbiz_rfid/src/scanner/presentation/state/scanner_state.dart';
 
@@ -78,8 +77,7 @@ class ScannerView extends ConsumerWidget {
               ),
             ),
             FilledButton(
-              onPressed: () =>
-                  scannerService.startScanning(StartMode.loopContinuous),
+              onPressed: () {},
               child: Text("Start Scanning"),
             ),
           ],

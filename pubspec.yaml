@@ -71,7 +71,8 @@ dependency_overrides:
   uhf6_plugin:
     git:
       url: https://github.com/famasf1/uhf6_plugin.git
-      ref: main
+      ref: 9b7a97f
+
 
 # The following section is specific to Flutter packages.
 flutter:
