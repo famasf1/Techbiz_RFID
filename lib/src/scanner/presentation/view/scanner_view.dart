@@ -77,7 +77,7 @@ class ScannerView extends ConsumerWidget {
               ),
             ),
             FilledButton(
-              onPressed: () {},
+              onPressed: () async => await scannerService.getHardwareVersion(),
               child: Text("Start Scanning"),
             ),
           ],
