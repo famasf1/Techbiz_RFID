@@ -878,8 +878,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "62ec779"
-      resolved-ref: "62ec779f72bc967940e34a64a65dc97efc84cbd5"
+      ref: f38960c
+      resolved-ref: f38960cc15a2b196af34b2a7cf7d1a74ed9f4504
       url: "https://github.com/famasf1/uhf6_plugin.git"
     source: git
     version: "0.0.2"
