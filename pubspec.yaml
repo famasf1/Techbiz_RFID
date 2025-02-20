@@ -45,7 +45,9 @@ dependencies:
   excel: ^4.0.6
   archive: ^3.6.1
   freezed_annotation: ^2.4.4
-  uhf6_plugin: ^0.0.2
+  audioplayers: ^6.2.0
+  uhf6_plugin: 
+    path: /Users/tcbdevbuild/Documents/uhf6_plugin/
 
 dev_dependencies:
   flutter_test:
@@ -67,11 +69,11 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
-dependency_overrides: 
-  uhf6_plugin:
-    git:
-      url: https://github.com/famasf1/uhf6_plugin.git
-      ref: "f38960c"
+# dependency_overrides: 
+#   uhf6_plugin:
+#     git:
+#       url: https://github.com/famasf1/uhf6_plugin.git
+#       ref: "969eb51"
 
 # The following section is specific to Flutter packages.
 flutter:

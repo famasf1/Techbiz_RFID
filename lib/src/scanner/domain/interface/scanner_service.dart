@@ -11,9 +11,8 @@ part 'scanner_service.g.dart';
 ScannerService scannerService(Ref ref) {
   // final uhfWrapper = ref.watch(uhfWrapperProvider);
   final uhf6Plugin = ref.watch(uhf6PluginProvider);
-  const EventChannel eventChannel = EventChannel("com.techbusiness.rfid.event");
 
-  return ScannerServiceImpl(uhfWrapper: uhf6Plugin, eventChannel: eventChannel);
+  return ScannerServiceImpl(uhfWrapper: uhf6Plugin);
 }
 
 abstract class ScannerService {
@@ -21,4 +20,7 @@ abstract class ScannerService {
   Future<void> startScanning();
   Future<void> stopScanning();
   Future<HardwareResponse> getHardwareVersion();
+  FutureOr<void> listenScannerButtonClick();
+  FutureOr<void> stopListenScannerButtonClick();
+  void startListening(Function(String) onData);
 }

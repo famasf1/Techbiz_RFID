@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:techbiz_rfid/src/common/widgets/async_value_widget.dart';
+import 'package:techbiz_rfid/src/scanner/domain/enum/scan_code_enum.dart';
 import 'package:techbiz_rfid/src/scanner/domain/interface/scanner_service.dart';
 import 'package:techbiz_rfid/src/scanner/presentation/state/scanner_state.dart';
 
@@ -19,16 +20,19 @@ class _ScannerViewState extends ConsumerState<ScannerView> {
   void initState() {
     super.initState();
     _initializeServiceInstance();
-    platform.setMethodCallHandler((call) async {
-      if (call.method == "onScanKeyPressed") {
-        final int keyCode = call.arguments;
-        print("Key ${keyCode}");
-      }
-    });
+    // platform.setMethodCallHandler((call) async {
+    //   if (call.method == "onScanKeyPressed") {
+    //     final int keyCode = call.arguments;
+    //     print("Key ${keyCode}");
+    //   }
+    // });
   }
 
   Future<void> _initializeServiceInstance() async {
-    await ref.read(scannerServiceProvider).getInstance();
+    final scannerService = ref.read(scannerServiceProvider);
+
+    await scannerService.getInstance();
+    await scannerService.listenScannerButtonClick();
   }
 
   @override
@@ -53,6 +57,21 @@ class _ScannerViewState extends ConsumerState<ScannerView> {
         );
       }
     }
+
+    scannerService.startListening((data) async {
+      ScanCode? scanCode = ScanCode.fromKeyCode(data);
+      
+      switch (scanCode) {
+        case ScanCode.leftSide:
+          await showHardwareVersion();
+        case ScanCode.trigger:
+          ref.read(scanButtonStateProvider.notifier).onPressed();
+        case ScanCode.rightSide:
+          debugPrint("Right Side");
+        default:
+          debugPrint("Unknown");
+      }
+    });
 
     return Scaffold(
       appBar: AppBar(
@@ -146,7 +165,8 @@ class _ScannerViewState extends ConsumerState<ScannerView> {
   }
 
   @override
-  void dispose() {
+  void dispose() async {
+    await ref.read(scannerServiceProvider).stopListenScannerButtonClick();
     super.dispose();
   }
 }
