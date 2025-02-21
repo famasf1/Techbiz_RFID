@@ -1,21 +1,19 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:techbiz_rfid/src/scanner/domain/interface/scanner_service.dart';
-import 'package:techbiz_rfid/src/scanner/domain/scan_data.dart';
+import 'package:techbiz_rfid/src/scanner/domain/tag_info.dart';
 
 part 'scanner_state.g.dart';
 
 @riverpod
 class ScanDataState extends _$ScanDataState {
   @override
-  FutureOr<List<ScanData>> build() async {
-    final scannerService = ref.watch(scannerServiceProvider);
-
-    return List.empty();
+  List<TagInfo> build() {
+    return List.empty(growable: true);
   }
 
-  // void addData(ScanData data) {
-  //   state.add(data);
-  // }
+  void addData(List tagInfoList) async {
+    state.addAll(tagInfoList.map((e) => TagInfo.fromJson(e)).toList());
+  }
 }
 
 @riverpod
@@ -25,7 +23,15 @@ class ScanButtonState extends _$ScanButtonState {
     return false;
   }
 
-  void onPressed() {
+  FutureOr<void> onPressed() async {
+    final scannerService = ref.watch(scannerServiceProvider);
     state = !state;
+
+    switch (state) {
+      case true:
+        await scannerService.startScanning();
+      case false:
+        await scannerService.stopScanning();
+    }
   }
 }
