@@ -12,7 +12,9 @@ class ScanDataState extends _$ScanDataState {
   }
 
   void addData(List tagInfoList) async {
-    state.addAll(tagInfoList.map((e) => TagInfo.fromJson(e)).toList());
+    List<TagInfo> tagInfoListData =
+        tagInfoList.map((e) => TagInfo.fromJson(e)).toList();
+    state = tagInfoListData;
   }
 }
 
