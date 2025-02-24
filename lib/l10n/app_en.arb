@@ -17,6 +17,10 @@
         "description": "The title of the scanner setting page"
     },
     "scannerSetting": "Scanner Setting",
+    "@save": {
+        "description": "The title for save button"
+    },
+    "save": "Save",
     "@_SETTINGS" : {},
     "@languageSetting": {
         "description": "The title for language setting"
@@ -45,5 +49,13 @@
     "@writePowerSettingDescription" : {
         "description": "Description helper for write power setting"
     },
-    "writePowerSettingDescription" : "20–25 dBm is generally recommended setting."
+    "writePowerSettingDescription" : "20–25 dBm is generally recommended setting.",
+    "@frequencyAreaSetting" : {
+        "description": "The title for frequency area setting"
+    },
+    "frequencyAreaSetting": "Frequency Area",
+    "@frequencyAreaSettingDescription" : {
+        "description": "Description helper for frequency area setting"
+    },
+    "frequencyAreaSettingDescription" : "Select the frequency area you want to use (MHz)."
 }

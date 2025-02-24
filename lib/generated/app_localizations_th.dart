@@ -1,0 +1,52 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Thai (`th`).
+class AppLocalizationsTh extends AppLocalizations {
+  AppLocalizationsTh([String locale = 'th']) : super(locale);
+
+  @override
+  String get app_name => 'TECHBIZ RFID';
+
+  @override
+  String get home => 'หน้าแรก';
+
+  @override
+  String get scanner => 'สแกนเนอร์';
+
+  @override
+  String get scannerSetting => 'ตั้งค่าเครื่องสแกน';
+
+  @override
+  String get save => 'บันทึก';
+
+  @override
+  String get languageSetting => 'ตั้งค่าภาษา';
+
+  @override
+  String get language => 'ภาษา';
+
+  @override
+  String get powerSetting => 'ตั้งค่าระยะพื้นที่สแกน';
+
+  @override
+  String get readPowerSetting => 'ระยะพื้นที่ในการอ่าน';
+
+  @override
+  String get readPowerSettingDescription => 'แนะนำให้ตั้งไว้ที่ประมาณ 25–30 dBm';
+
+  @override
+  String get writePowerSetting => 'ระยะพื้นที่ในการเขียน';
+
+  @override
+  String get writePowerSettingDescription => 'แนะนำให้ตั้งไว้ที่ประมาณ 20–25 dBm';
+
+  @override
+  String get frequencyAreaSetting => 'ชุดคลื่นความถี่';
+
+  @override
+  String get frequencyAreaSettingDescription => 'เลือกคลื่นความถี่ที่ต้องการใช้ (MHz)';
+}

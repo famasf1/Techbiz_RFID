@@ -45,5 +45,17 @@
     "@writePowerSettingDescription" : {
         "description": "คำอธิบายสำหรับระยะพื้นที่ในการเขียน"
     },
-    "writePowerSettingDescription" : "แนะนำให้ตั้งไว้ที่ประมาณ 20–25 dBm"
+    "writePowerSettingDescription" : "แนะนำให้ตั้งไว้ที่ประมาณ 20–25 dBm",
+    "@frequencyAreaSetting" : {
+        "description": "ชื่อเมนูตั้งค่า Frequency Area"
+    },
+    "frequencyAreaSetting": "ชุดคลื่นความถี่",
+    "@frequencyAreaSettingDescription" : {
+        "description": "รายละเอียดเกี่ยวกับการตั้งค่าชุดคลื่นความถี่"
+    },
+    "frequencyAreaSettingDescription" : "เลือกคลื่นความถี่ที่ต้องการใช้ (MHz)",
+    "@save": {
+        "description": "ปุ่มบันทึกข้อมูล"
+    },
+    "save": "บันทึก"
 }
