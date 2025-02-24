@@ -5,7 +5,7 @@ import 'package:techbiz_rfid/generated/app_localizations.dart';
 part 'app_locale_extension.g.dart'; 
 
 extension AppLocaleExtension on BuildContext {
-  AppLocalizations get localization => AppLocalizations.of(this)!;
+  AppLocalizations get translation => AppLocalizations.of(this)!;
 }
 
 @riverpod 

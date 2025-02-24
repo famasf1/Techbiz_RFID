@@ -17,7 +17,6 @@ class HomepageView extends ConsumerStatefulWidget {
 class _HomepageViewState extends ConsumerState<HomepageView> {
   @override
   Widget build(BuildContext context) {
-    final translation = context.localization;
 
     return Scaffold(
       drawer: Drawer(
@@ -37,7 +36,7 @@ class _HomepageViewState extends ConsumerState<HomepageView> {
             onTap: () {},
           ),
           DrawerItem(
-            title: translation.scannerSetting,
+            title: context.translation.scannerSetting,
             onTap: () => context.go(AppRoutesConst.scannerSetting),
           ),
         ],
