@@ -3,6 +3,7 @@ import 'package:techbiz_rfid/src/feature/export/presentation/view/export_view.da
 import 'package:techbiz_rfid/src/feature/home/presentation/view/homepage_view.dart';
 import 'package:techbiz_rfid/src/feature/import/presentation/views/import_view.dart';
 import 'package:techbiz_rfid/src/feature/scanner/presentation/view/scanner_view.dart';
+import 'package:techbiz_rfid/src/feature/setting/presentation/view/scanner_setting_view.dart';
 
 final appRoutes = GoRouter(
   initialLocation: '/',
@@ -27,6 +28,11 @@ final appRoutes = GoRouter(
           name: 'scanner',
           path: '/scanner',
           builder: (context, state) => ScannerView(),
+        ),
+        GoRoute(
+          name: 'scannerSetting',
+          path: '/scannerSetting',
+          builder: (context, state) => ScannerSettingView(),
         ),
       ],
     ),

@@ -11,6 +11,7 @@ sealed class ScannerSetting with _$ScannerSetting {
     @Default(0) int readPower,
     @Default(0) int writePower,
     required FrequencyArea frequencyArea,
+    required String language,
   }) = _ScannerSetting;
 
   factory ScannerSetting.fromJson(Map<String, dynamic> json) =>

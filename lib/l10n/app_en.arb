@@ -3,6 +3,7 @@
     "@app_name" : {
         "description": "The name of the app"
     },
+    "@_GENERAL" : {},
     "app_name": "TECHBIZ RFID",
     "@home": {
         "description": "The title of the home page"
@@ -11,5 +12,38 @@
     "@scanner": {
         "description": "The title of the scanner page"
     },
-    "scanner": "Scanner"
+    "scanner": "Scanner",
+    "@scannerSetting" : {
+        "description": "The title of the scanner setting page"
+    },
+    "scannerSetting": "Scanner Setting",
+    "@_SETTINGS" : {},
+    "@languageSetting": {
+        "description": "The title for language setting"
+    },
+    "languageSetting": "Language Setting",
+    "@language": {
+        "description": "The title for language"
+    },
+    "language" : "Language",
+    "@powerSetting": {
+        "description": "The title for power setting"
+    },
+    "powerSetting": "Power Setting",
+    "@readPowerSetting": {
+        "description": "The title for read power setting"
+    },
+    "readPowerSetting": "Read Power",
+    "@readPowerSettingDescription" : {
+        "description": "Description helper for read power setting"
+    },
+    "readPowerSettingDescription" : "25–30 dBm is generally recommended setting.",
+    "@writePowerSetting": {
+        "description": "The title for write power setting"
+    },
+    "writePowerSetting": "Write Power",
+    "@writePowerSettingDescription" : {
+        "description": "Description helper for write power setting"
+    },
+    "writePowerSettingDescription" : "20–25 dBm is generally recommended setting."
 }

@@ -4,6 +4,7 @@
         "description": "ชื่อแอพ"
     },
     "app_name": "TECHBIZ RFID",
+    "@_GENERAL" : {},
     "@home": {
         "description": "ชื่อหน้าแรก"
     },
@@ -11,5 +12,38 @@
     "@scanner": {
         "description": "ชื่อหน้าสแกน"
     },
-    "scanner": "สแกนเนอร์"
+    "scanner": "สแกนเนอร์",
+    "@scannerSetting" : {
+        "description": "ชื่อหน้าตั้งค่าเครื่องสแกน"
+    },
+    "scannerSetting": "ตั้งค่าเครื่องสแกน",
+    "@_SETTINGS" : {},
+    "@languageSetting": {
+        "description": "ชื่อส่วนการตั้งค่าภาษา"
+    },
+    "languageSetting": "ตั้งค่าภาษา",
+    "@language": {
+        "description": "ชื่อภาษา"
+    },
+    "language" : "ภาษา",
+    "@powerSetting": {
+        "description": "ชื่อส่วนการตั้งค่าระยะความกว้างที่ระบบสแกนสามารถจับได้ ยิ่งสูงยิ่งจับได้ไกลขึ้น ถึงขั้นจับทะลุกำแพงและสิ่งกีดขวางได้"
+    },
+    "powerSetting": "ตั้งค่าระยะพื้นที่สแกน",
+    "@readPowerSetting": {
+        "description": "ตั้งค่าระยะพื้นที่ในการอ่าน"
+    },
+    "readPowerSetting": "ระยะพื้นที่ในการอ่าน",
+    "@readPowerSettingDescription" : {
+        "description": "คำอธิบายสำหรับระยะพื้นที่ในการอ่าน"
+    },
+    "readPowerSettingDescription" : "แนะนำให้ตั้งไว้ที่ประมาณ 25–30 dBm",
+    "@writePowerSetting": {
+        "description": "ตั้งค่าระยะพื้นที่ในการเขียน"
+    },
+    "writePowerSetting": "ระยะพื้นที่ในการเขียน",
+    "@writePowerSettingDescription" : {
+        "description": "คำอธิบายสำหรับระยะพื้นที่ในการเขียน"
+    },
+    "writePowerSettingDescription" : "แนะนำให้ตั้งไว้ที่ประมาณ 20–25 dBm"
 }

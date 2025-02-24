@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:techbiz_rfid/src/common/extensions/app_locale_extension.dart';
 import 'package:techbiz_rfid/src/common/route/app_routes_const.dart';
 import 'package:techbiz_rfid/src/common/util/drawer_item.dart';
 
@@ -16,6 +17,8 @@ class HomepageView extends ConsumerStatefulWidget {
 class _HomepageViewState extends ConsumerState<HomepageView> {
   @override
   Widget build(BuildContext context) {
+    final translation = context.localization;
+
     return Scaffold(
       drawer: Drawer(
           child: ListView(
@@ -32,6 +35,10 @@ class _HomepageViewState extends ConsumerState<HomepageView> {
           DrawerItem(
             title: "Export Data",
             onTap: () {},
+          ),
+          DrawerItem(
+            title: translation.scannerSetting,
+            onTap: () => context.go(AppRoutesConst.scannerSetting),
           ),
         ],
       )),

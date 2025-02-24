@@ -429,6 +429,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  font_awesome_flutter:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: c2416f038714ded3f66546142c42aa29c5bb6377
+      url: "https://github.com/famasf1/font_awesome_flutter"
+    source: git
+    version: "10.7.0"
   freezed:
     dependency: "direct dev"
     description:
