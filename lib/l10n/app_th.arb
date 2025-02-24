@@ -1,0 +1,15 @@
+{
+    "@@author": "techbiz",
+    "@app_name" : {
+        "description": "ชื่อแอพ"
+    },
+    "app_name": "TECHBIZ RFID",
+    "@home": {
+        "description": "ชื่อหน้าแรก"
+    },
+    "home": "หน้าแรก",
+    "@scanner": {
+        "description": "ชื่อหน้าสแกน"
+    },
+    "scanner": "สแกนเนอร์"
+}

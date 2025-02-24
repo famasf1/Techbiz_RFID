@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:techbiz_rfid/src/common/route/app_routes.dart';
 import 'package:techbiz_rfid/src/common/theme/techbiz_theme.dart';
@@ -17,6 +18,15 @@ class MainApp extends StatelessWidget {
       routerConfig: appRoutes,
       title: 'TECHBIZ_RFID',
       theme: MaterialTechbizTheme().themeData,
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en'),
+        Locale('th'),
+      ],
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:go_router/go_router.dart';
-import 'package:techbiz_rfid/src/export/presentation/view/export_view.dart';
-import 'package:techbiz_rfid/src/home/presentation/view/homepage_view.dart';
-import 'package:techbiz_rfid/src/import/presentation/views/import_view.dart';
-import 'package:techbiz_rfid/src/scanner/presentation/view/scanner_view.dart';
+import 'package:techbiz_rfid/src/feature/export/presentation/view/export_view.dart';
+import 'package:techbiz_rfid/src/feature/home/presentation/view/homepage_view.dart';
+import 'package:techbiz_rfid/src/feature/import/presentation/views/import_view.dart';
+import 'package:techbiz_rfid/src/feature/scanner/presentation/view/scanner_view.dart';
 
 final appRoutes = GoRouter(
   initialLocation: '/',
