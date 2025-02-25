@@ -21,6 +21,14 @@
         "description": "The title for save button"
     },
     "save": "Save",
+    "@error" : {
+        "description": "The title for error"
+    },
+    "error" : "Error",
+    "@okTxt": {
+        "description": "Okay button"
+    },
+    "okTxt": "Okay",
     "@_SETTINGS" : {},
     "@languageSetting": {
         "description": "The title for language setting"
@@ -57,5 +65,6 @@
     "@frequencyAreaSettingDescription" : {
         "description": "Description helper for frequency area setting"
     },
-    "frequencyAreaSettingDescription" : "Select the frequency area you want to use (MHz)."
+    "frequencyAreaSettingDescription" : "Select the frequency area you want to use (MHz).",
+    "@_ERROR" : {}
 }

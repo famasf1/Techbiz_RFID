@@ -54,11 +54,14 @@ class _SettingContent extends ConsumerWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
+          ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 2),
             child: Text(
               title,
               textAlign: TextAlign.start,
               style: context.theme.textTheme.bodyMedium,
+              overflow: TextOverflow.visible,
+              softWrap: true,
             ),
           ),
           child,

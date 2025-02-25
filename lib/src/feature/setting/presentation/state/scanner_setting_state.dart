@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:techbiz_rfid/src/common/domain/return_response.dart';
 import 'package:techbiz_rfid/src/feature/setting/domain/scanner_setting.dart';
 import 'package:techbiz_rfid/src/feature/setting/domain/service/scanner_service_service.dart';
 
@@ -10,31 +9,22 @@ part 'scanner_setting_state.g.dart';
 class ScannerSettingState extends _$ScannerSettingState {
   @override
   ScannerSetting build() {
-    // final scannerSettingService = ref.watch(scannerSettingServiceProvider);
-
     return ScannerSetting();
   }
 
-  Future setDefaultPowerSetting() async {
+  Future setDefaultSetting() async {
     final scannerSettingService = ref.watch(scannerSettingServiceProvider);
-    final powerSetting = await scannerSettingService.getPowerSetting();
+    final scannerSetting = await scannerSettingService.getScannerSetting();
 
     state = state.copyWith(
-      readPower: powerSetting.readPower,
-      writePower: powerSetting.writePower,
+      readPower: scannerSetting.readPower,
+      writePower: scannerSetting.writePower,
+      frequencyArea: scannerSetting.frequencyArea,
+      language: scannerSetting.language,
     );
   }
 
   updateLanguage(String language) {
-    //TODO : Need to implement language change
-    late Locale _locale;
-    switch (language) {
-      case 'Thai':
-        _locale = Locale('th');
-      case 'English': 
-        _locale = Locale('en');
-    }
-
     state = state.copyWith(language: language);
   }
 
@@ -48,5 +38,28 @@ class ScannerSettingState extends _$ScannerSettingState {
 
   updatefrequencyArea(FrequencyArea frequencyArea) {
     state = state.copyWith(frequencyArea: frequencyArea);
+  }
+
+  Future<ReturnResponse> saveScannerSetting() async {
+    final scannerSettingService = ref.watch(scannerSettingServiceProvider);
+
+    var result = await scannerSettingService.saveScannerSetting(state);
+    return result;
+  }
+}
+
+@riverpod
+class ScannerSettingButtonState extends _$ScannerSettingButtonState {
+  @override
+  FutureOr<void> build() async {
+    /// Leave empty
+  }
+
+  FutureOr<void> onPressed() async {
+    final scannerSettingState = ref.read(scannerSettingStateProvider.notifier);
+    state = const AsyncLoading();
+    state =
+        await AsyncValue.guard(() => scannerSettingState.saveScannerSetting());
+    ref.invalidateSelf();
   }
 }

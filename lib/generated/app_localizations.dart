@@ -125,6 +125,18 @@ abstract class AppLocalizations {
   /// **'Save'**
   String get save;
 
+  /// The title for error
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
+
+  /// Okay button
+  ///
+  /// In en, this message translates to:
+  /// **'Okay'**
+  String get okTxt;
+
   /// The title for language setting
   ///
   /// In en, this message translates to:

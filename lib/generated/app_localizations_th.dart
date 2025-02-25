@@ -24,6 +24,12 @@ class AppLocalizationsTh extends AppLocalizations {
   String get save => 'บันทึก';
 
   @override
+  String get error => 'ข้อผิดพลาด';
+
+  @override
+  String get okTxt => 'ตกลง';
+
+  @override
   String get languageSetting => 'ตั้งค่าภาษา';
 
   @override

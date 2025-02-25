@@ -15,11 +15,11 @@ class ScannerServiceImpl implements ScannerService {
   const ScannerServiceImpl(
       {required this.uhfWrapper});
 
-  @override
-  Future<InstanceResponse> getInstance() async {
-    final result = await uhfWrapper.initializingInstance();
-    return result;
-  }
+  // @override
+  // Future<InstanceResponse> getInstance() async {
+  //   final result = await uhfWrapper.initializingInstance();
+  //   return result;
+  // }
 
   @override
   Future<HardwareResponse> getHardwareVersion() async {

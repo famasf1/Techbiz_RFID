@@ -20,7 +20,7 @@ ScannerService scannerService(Ref ref) {
 }
 
 abstract class ScannerService {
-  Future<InstanceResponse> getInstance();
+  // Future<InstanceResponse> getInstance();
   Future<void> startScanning();
   Future<void> stopScanning();
   Future<HardwareResponse> getHardwareVersion();

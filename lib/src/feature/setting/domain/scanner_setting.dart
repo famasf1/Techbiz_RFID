@@ -11,7 +11,7 @@ sealed class ScannerSetting with _$ScannerSetting {
     @Default(0) int readPower,
     @Default(0) int writePower,
     @Default(FrequencyArea.RG_NONE) FrequencyArea frequencyArea,
-    @Default('Thai') String language,
+    @Default('Thai') String? language,
   }) = _ScannerSetting;
 
   factory ScannerSetting.fromJson(Map<String, dynamic> json) =>
@@ -28,7 +28,8 @@ enum FrequencyArea implements Comparable<FrequencyArea> {
   RG_KR(range: "917–920.8 MHz", country: "South Korea"),
   RG_EU(range: "865–868 MHz", country: "Europe (ETSI Standard)"),
   RG_EU2(range: "915–921 MHz", country: "Additional EU frequencies (ETSI)"),
-  RG_EU3(range: "916.3–918.7 MHz", country: "More extended EU frequencies");
+  RG_EU3(range: "916.3–918.7 MHz", country: "More extended EU frequencies"),
+  RG_OPEN(range: "Custom", country: "Custom");
 
   const FrequencyArea({
     this.range,

@@ -17,6 +17,18 @@
         "description": "ชื่อหน้าตั้งค่าเครื่องสแกน"
     },
     "scannerSetting": "ตั้งค่าเครื่องสแกน",
+    "@error" : {
+        "description": "คำว่า Error"
+    },
+    "error" : "ข้อผิดพลาด",
+    "@save": {
+        "description": "ปุ่มบันทึกข้อมูล"
+    },
+    "save": "บันทึก",
+    "@okTxt": {
+        "description": "ปุ่มรับทราบ"
+    },
+    "okTxt": "ตกลง",
     "@_SETTINGS" : {},
     "@languageSetting": {
         "description": "ชื่อส่วนการตั้งค่าภาษา"
@@ -53,9 +65,5 @@
     "@frequencyAreaSettingDescription" : {
         "description": "รายละเอียดเกี่ยวกับการตั้งค่าชุดคลื่นความถี่"
     },
-    "frequencyAreaSettingDescription" : "เลือกคลื่นความถี่ที่ต้องการใช้ (MHz)",
-    "@save": {
-        "description": "ปุ่มบันทึกข้อมูล"
-    },
-    "save": "บันทึก"
+    "frequencyAreaSettingDescription" : "เลือกคลื่นความถี่ที่ต้องการใช้ (MHz)"
 }

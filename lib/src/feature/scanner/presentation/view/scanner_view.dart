@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:techbiz_rfid/src/common/const/app_const.dart';
 import 'package:techbiz_rfid/src/feature/scanner/domain/enum/scan_code_enum.dart';
 import 'package:techbiz_rfid/src/feature/scanner/domain/interface/scanner_service.dart';
 import 'package:techbiz_rfid/src/feature/scanner/presentation/state/scanner_state.dart';
-import 'package:uhf6_plugin/generated/uhf6_lib_api.g.dart' as uhf6Plugin;
 
 class ScannerView extends ConsumerStatefulWidget {
   const ScannerView({super.key});
@@ -15,27 +13,20 @@ class ScannerView extends ConsumerStatefulWidget {
 }
 
 class _ScannerViewState extends ConsumerState<ScannerView> {
-  static const platform = MethodChannel('com.techbusiness.hardware_button');
 
   @override
   void initState() {
     super.initState();
     _initializeServiceInstance();
-    // platform.setMethodCallHandler((call) async {
-    //   if (call.method == "onScanKeyPressed") {
-    //     final int keyCode = call.arguments;
-    //     print("Key ${keyCode}");
-    //   }
-    // });
   }
 
   Future<void> _initializeServiceInstance() async {
     final scannerService = ref.read(scannerServiceProvider);
 
-    final instanceRes = await scannerService.getInstance();
-    if (instanceRes.code == uhf6Plugin.Code.success) {
+    // final instanceRes = await scannerService.getInstance();
+    // if (instanceRes.code == uhf6Plugin.Code.success) {
       await scannerService.listenScannerButtonClick();
-    }
+    // }
   }
 
   @override

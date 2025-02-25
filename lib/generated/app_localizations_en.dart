@@ -24,6 +24,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get save => 'Save';
 
   @override
+  String get error => 'Error';
+
+  @override
+  String get okTxt => 'Okay';
+
+  @override
   String get languageSetting => 'Language Setting';
 
   @override

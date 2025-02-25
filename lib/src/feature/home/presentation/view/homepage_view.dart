@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:techbiz_rfid/src/common/extensions/app_locale_extension.dart';
 import 'package:techbiz_rfid/src/common/route/app_routes_const.dart';
@@ -15,6 +16,7 @@ class HomepageView extends ConsumerStatefulWidget {
 }
 
 class _HomepageViewState extends ConsumerState<HomepageView> {
+
   @override
   Widget build(BuildContext context) {
 
@@ -28,15 +30,8 @@ class _HomepageViewState extends ConsumerState<HomepageView> {
             ),
           ),
           DrawerItem(
-            title: "Import Data",
-            onTap: () {},
-          ),
-          DrawerItem(
-            title: "Export Data",
-            onTap: () {},
-          ),
-          DrawerItem(
             title: context.translation.scannerSetting,
+            icon: FontAwesomeIcons.gear,
             onTap: () => context.go(AppRoutesConst.scannerSetting),
           ),
         ],
