@@ -143,6 +143,36 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get login;
 
+  /// The title for import data
+  ///
+  /// In en, this message translates to:
+  /// **'Import Data'**
+  String get importData;
+
+  /// The title for export data
+  ///
+  /// In en, this message translates to:
+  /// **'Export Data'**
+  String get exportData;
+
+  /// The title for read/write tag
+  ///
+  /// In en, this message translates to:
+  /// **'Read/Write Tag'**
+  String get readWriteTag;
+
+  /// The title for lock tag
+  ///
+  /// In en, this message translates to:
+  /// **'Lock Tag'**
+  String get lockTag;
+
+  /// The title for kill tag
+  ///
+  /// In en, this message translates to:
+  /// **'Kill Tag'**
+  String get killTag;
+
   /// The title for language setting
   ///
   /// In en, this message translates to:

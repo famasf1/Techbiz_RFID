@@ -33,6 +33,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'Login';
 
   @override
+  String get importData => 'Import Data';
+
+  @override
+  String get exportData => 'Export Data';
+
+  @override
+  String get readWriteTag => 'Read/Write Tag';
+
+  @override
+  String get lockTag => 'Lock Tag';
+
+  @override
+  String get killTag => 'Kill Tag';
+
+  @override
   String get languageSetting => 'Language Setting';
 
   @override

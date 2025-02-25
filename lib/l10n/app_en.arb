@@ -33,6 +33,26 @@
         "description": "The title for login"
     },
     "login": "Login",
+    "@importData" : {
+        "description": "The title for import data"
+    },
+    "importData": "Import Data",
+    "@exportData" : {
+        "description": "The title for export data"
+    },
+    "exportData": "Export Data",
+    "@readWriteTag" : {
+        "description": "The title for read/write tag"
+    },
+    "readWriteTag": "Read/Write Tag",
+    "@lockTag" : {
+        "description": "The title for lock tag"
+    },
+    "lockTag": "Lock Tag",
+    "@killTag" : {
+        "description": "The title for kill tag"
+    },
+    "killTag": "Kill Tag",
     "@_SETTINGS" : {},
     "@languageSetting": {
         "description": "The title for language setting"

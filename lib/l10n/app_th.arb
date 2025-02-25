@@ -33,6 +33,26 @@
         "description": "ชื่อปุ่มเข้าสู่ระบบ"
     },
     "login": "เข้าสู่ระบบ",
+    "@importData" : {
+        "description": "ปุ่มนำเข้าข้อมูล"
+    },
+    "importData": "นำเข้าข้อมูล",
+    "@exportData" : {
+        "description": "ปุ่มส่งออกข้อมูล"
+    },
+    "exportData": "ส่งออกข้อมูล",
+    "@readWriteTag" : {
+        "description": "ปุ่มอ่าน/แก้ไขแท็ก"
+    },
+    "readWriteTag": "อ่าน/แก้ไข Tag",
+    "@lockTag" : {
+        "description": "ปุ่มล็อค Tag"
+    },
+    "lockTag": "ล็อค Tag",
+    "@killTag" : {
+        "description": "ปุ่มทำลาย Tag"
+    },
+    "killTag": "ทำลาย Tag",
     "@_SETTINGS" : {},
     "@languageSetting": {
         "description": "ชื่อส่วนการตั้งค่าภาษา"

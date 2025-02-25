@@ -49,17 +49,17 @@ class _HomepageViewState extends ConsumerState<HomepageView> {
               children: [
                 MainMenuItem(
                   icon: FontAwesomeIcons.fileImport,
-                  title: "Import Data",
+                  title: context.translation.importData,
                   onPressed: () => context.go(AppRoutesConst.import),
                 ),
                 MainMenuItem(
                   icon: FontAwesomeIcons.warehouse,
-                  title: "Scanner",
+                  title: context.translation.scanner,
                   onPressed: () => context.go(AppRoutesConst.scanner),
                 ),
                 MainMenuItem(
                   icon: FontAwesomeIcons.fileExport,
-                  title: "Export Data",
+                  title: context.translation.exportData,
                   onPressed: () => context.go(AppRoutesConst.export),
                 ),
               ],
@@ -69,17 +69,17 @@ class _HomepageViewState extends ConsumerState<HomepageView> {
               children: [
                 MainMenuItem(
                   icon: FontAwesomeIcons.penToSquare,
-                  title: "Read/Write Tag",
+                  title: context.translation.readWriteTag,
                   onPressed: () => context.go(AppRoutesConst.import),
                 ),
                 MainMenuItem(
                   icon: FontAwesomeIcons.lock,
-                  title: "Lock Tag",
+                  title: context.translation.lockTag,
                   onPressed: () => context.go(AppRoutesConst.scanner),
                 ),
                 MainMenuItem(
                   icon: FontAwesomeIcons.trashSlash,
-                  title: "Kill Tag",
+                  title: context.translation.killTag,
                   onPressed: () => context.go(AppRoutesConst.export),
                 ),
               ],

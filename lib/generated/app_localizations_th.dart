@@ -33,6 +33,21 @@ class AppLocalizationsTh extends AppLocalizations {
   String get login => 'เข้าสู่ระบบ';
 
   @override
+  String get importData => 'นำเข้าข้อมูล';
+
+  @override
+  String get exportData => 'ส่งออกข้อมูล';
+
+  @override
+  String get readWriteTag => 'อ่าน/แก้ไข Tag';
+
+  @override
+  String get lockTag => 'ล็อค Tag';
+
+  @override
+  String get killTag => 'ทำลาย Tag';
+
+  @override
   String get languageSetting => 'ตั้งค่าภาษา';
 
   @override
