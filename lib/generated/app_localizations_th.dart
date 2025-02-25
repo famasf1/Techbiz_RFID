@@ -30,6 +30,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get okTxt => 'ตกลง';
 
   @override
+  String get login => 'เข้าสู่ระบบ';
+
+  @override
   String get languageSetting => 'ตั้งค่าภาษา';
 
   @override

@@ -29,6 +29,10 @@
         "description": "Okay button"
     },
     "okTxt": "Okay",
+    "@login": {
+        "description": "The title for login"
+    },
+    "login": "Login",
     "@_SETTINGS" : {},
     "@languageSetting": {
         "description": "The title for language setting"

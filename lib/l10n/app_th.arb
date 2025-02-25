@@ -29,6 +29,10 @@
         "description": "ปุ่มรับทราบ"
     },
     "okTxt": "ตกลง",
+    "@login": {
+        "description": "ชื่อปุ่มเข้าสู่ระบบ"
+    },
+    "login": "เข้าสู่ระบบ",
     "@_SETTINGS" : {},
     "@languageSetting": {
         "description": "ชื่อส่วนการตั้งค่าภาษา"

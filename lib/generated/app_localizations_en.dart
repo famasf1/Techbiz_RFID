@@ -30,6 +30,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get okTxt => 'Okay';
 
   @override
+  String get login => 'Login';
+
+  @override
   String get languageSetting => 'Language Setting';
 
   @override

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,10 +17,8 @@ class HomepageView extends ConsumerStatefulWidget {
 }
 
 class _HomepageViewState extends ConsumerState<HomepageView> {
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       drawer: Drawer(
           child: ListView(
@@ -42,23 +41,60 @@ class _HomepageViewState extends ConsumerState<HomepageView> {
       body: Container(
         height: MediaQuery.of(context).size.height / 2,
         padding: EdgeInsets.all(15),
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            MainMenuItem(
-              icon: Icons.import_contacts,
-              title: "Import Data",
-              onPressed: () => context.go(AppRoutesConst.import),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                MainMenuItem(
+                  icon: FontAwesomeIcons.fileImport,
+                  title: "Import Data",
+                  onPressed: () => context.go(AppRoutesConst.import),
+                ),
+                MainMenuItem(
+                  icon: FontAwesomeIcons.warehouse,
+                  title: "Scanner",
+                  onPressed: () => context.go(AppRoutesConst.scanner),
+                ),
+                MainMenuItem(
+                  icon: FontAwesomeIcons.fileExport,
+                  title: "Export Data",
+                  onPressed: () => context.go(AppRoutesConst.export),
+                ),
+              ],
             ),
-            MainMenuItem(
-              icon: Icons.warehouse,
-              title: "Scanner",
-              onPressed: () => context.go(AppRoutesConst.scanner),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                MainMenuItem(
+                  icon: FontAwesomeIcons.penToSquare,
+                  title: "Read/Write Tag",
+                  onPressed: () => context.go(AppRoutesConst.import),
+                ),
+                MainMenuItem(
+                  icon: FontAwesomeIcons.lock,
+                  title: "Lock Tag",
+                  onPressed: () => context.go(AppRoutesConst.scanner),
+                ),
+                MainMenuItem(
+                  icon: FontAwesomeIcons.trashSlash,
+                  title: "Kill Tag",
+                  onPressed: () => context.go(AppRoutesConst.export),
+                ),
+              ],
             ),
-            MainMenuItem(
-              icon: Icons.import_export,
-              title: "Export Data",
-              onPressed: () => context.go(AppRoutesConst.export),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                kDebugMode
+                    ? MainMenuItem(
+                        icon: FontAwesomeIcons.user,
+                        title: context.translation.login,
+                        onPressed: () => context.go(AppRoutesConst.login),
+                      )
+                    : SizedBox(),
+              ],
             ),
           ],
         ),
@@ -81,12 +117,17 @@ class MainMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      IconButton.outlined(
-        icon: Icon(icon),
-        onPressed: onPressed,
-      ),
-      Text(title),
-    ]);
+    return SizedBox(
+      width: 100,
+      height: 100,
+      child: Column(
+        children: [
+        IconButton.outlined(
+          icon: FaIcon(icon),
+          onPressed: onPressed,
+        ),
+        Text(title),
+      ]),
+    );
   }
 }

@@ -137,6 +137,12 @@ abstract class AppLocalizations {
   /// **'Okay'**
   String get okTxt;
 
+  /// The title for login
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login;
+
   /// The title for language setting
   ///
   /// In en, this message translates to:
