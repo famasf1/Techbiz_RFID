@@ -5,6 +5,7 @@ import 'package:techbiz_rfid/src/common/extensions/app_locale_extension.dart';
 import 'package:techbiz_rfid/src/common/route/app_routes.dart';
 import 'package:techbiz_rfid/src/common/theme/techbiz_theme.dart';
 import 'package:techbiz_rfid/src/common/wrapper/share_prefs_wrapper.dart';
+import 'package:techbiz_rfid/src/feature/scanner/domain/interface/scanner_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,7 +44,8 @@ class _EagerInitialization extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(sharePrefsWrapperProvider);
-    
+    ref.watch(scannerAudioPoolProvider);
+
     return child;
   }
 }

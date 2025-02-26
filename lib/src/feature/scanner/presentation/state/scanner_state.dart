@@ -16,6 +16,11 @@ class ScanDataState extends _$ScanDataState {
         tagInfoList.map((e) => TagInfo.fromJson(e)).toList();
     state = tagInfoListData;
   }
+
+  Future<void> playSound() async {
+    final scannerService = ref.watch(scannerServiceProvider);
+    await scannerService.playScannerSound();
+  }
 }
 
 @riverpod

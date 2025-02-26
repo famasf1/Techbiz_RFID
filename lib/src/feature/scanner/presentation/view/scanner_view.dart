@@ -13,7 +13,6 @@ class ScannerView extends ConsumerStatefulWidget {
 }
 
 class _ScannerViewState extends ConsumerState<ScannerView> {
-
   @override
   void initState() {
     super.initState();
@@ -25,7 +24,7 @@ class _ScannerViewState extends ConsumerState<ScannerView> {
 
     // final instanceRes = await scannerService.getInstance();
     // if (instanceRes.code == uhf6Plugin.Code.success) {
-      await scannerService.listenScannerButtonClick();
+    await scannerService.listenScannerButtonClick();
     // }
   }
 
@@ -72,6 +71,7 @@ class _ScannerViewState extends ConsumerState<ScannerView> {
             final tagInfoList = data.payload as List;
             if (tagInfoList.isNotEmpty) {
               ref.read(scanDataStateProvider.notifier).addData(tagInfoList);
+              ref.read(scanDataStateProvider.notifier).playSound();
             }
           }
         default:
@@ -94,61 +94,59 @@ class _ScannerViewState extends ConsumerState<ScannerView> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 2,
                   width: MediaQuery.of(context).size.width,
-                  child: 
-                  DataTable(
-                      border: TableBorder.all(),
-                      columns: [
-                        DataColumn(
-                          label: Text("Code"),
-                          numeric: false,
-                          onSort: (index, asc) => 0,
-                        ),
-                        // DataColumn(
-                        //   label: Text("Quantity"),
-                        //   numeric: false,
-                        // ),
-                        // DataColumn(
-                        //   label: Text("Product Serial"),
-                        //   numeric: false,
-                        //   onSort: (i, j) => 0,
-                        // ),
-                        // DataColumn(
-                        //   label: Text("Product Price"),
-                        //   numeric: true,
-                        //   onSort: (i, j) => 0,
-                        // ),
-                        DataColumn(
-                          label: Text("Quantity"),
-                          numeric: true,
-                          // onSort: (index, asc) {
-                          //   if (asc) {
-                          //     return scanData.sort(
-                          //         (a, b) => a.quantity.compareTo(b.quantity));
-                          //   } else {
-                          //     return scanData.sort(
-                          //         (a, b) => b.quantity.compareTo(a.quantity));
-                          //   }
-                          // },
-                        ),
-                      ],
-                      dataRowMaxHeight: double.infinity,
-                      rows: [
-                        ...scanDataState.map(
-                          (stockInfo) {
-                            return DataRow(
-                              cells: [
-                                DataCell(Text(stockInfo.epcId)),
-                                // DataCell(Text(stockInfo.productName)),
-                                // DataCell(Text(stockInfo.productSerial)),
-                                // DataCell(Text(stockInfo.price.toString())),
-                                DataCell(Text(stockInfo.antennaId.toString())),
-                              ],
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  
+                  child: DataTable(
+                    border: TableBorder.all(),
+                    columns: [
+                      DataColumn(
+                        label: Text("Code"),
+                        numeric: false,
+                        onSort: (index, asc) => 0,
+                      ),
+                      // DataColumn(
+                      //   label: Text("Quantity"),
+                      //   numeric: false,
+                      // ),
+                      // DataColumn(
+                      //   label: Text("Product Serial"),
+                      //   numeric: false,
+                      //   onSort: (i, j) => 0,
+                      // ),
+                      // DataColumn(
+                      //   label: Text("Product Price"),
+                      //   numeric: true,
+                      //   onSort: (i, j) => 0,
+                      // ),
+                      DataColumn(
+                        label: Text("Quantity"),
+                        numeric: true,
+                        // onSort: (index, asc) {
+                        //   if (asc) {
+                        //     return scanData.sort(
+                        //         (a, b) => a.quantity.compareTo(b.quantity));
+                        //   } else {
+                        //     return scanData.sort(
+                        //         (a, b) => b.quantity.compareTo(a.quantity));
+                        //   }
+                        // },
+                      ),
+                    ],
+                    dataRowMaxHeight: double.infinity,
+                    rows: [
+                      ...scanDataState.map(
+                        (stockInfo) {
+                          return DataRow(
+                            cells: [
+                              DataCell(Text(stockInfo.epcId)),
+                              // DataCell(Text(stockInfo.productName)),
+                              // DataCell(Text(stockInfo.productSerial)),
+                              // DataCell(Text(stockInfo.price.toString())),
+                              DataCell(Text(stockInfo.antennaId.toString())),
+                            ],
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

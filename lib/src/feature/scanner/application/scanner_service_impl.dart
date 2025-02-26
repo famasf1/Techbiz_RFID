@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:techbiz_rfid/src/common/domain/event_channel_response.dart';
@@ -10,10 +11,14 @@ import 'package:uhf6_plugin/uhf6_plugin.dart';
 
 class ScannerServiceImpl implements ScannerService {
   final IUhf6Plugin uhfWrapper;
-  static const EventChannel eventChannel = EventChannel("com.techbusiness.rfid.event");
+  final AudioPool audioPool;
+  static const EventChannel eventChannel =
+      EventChannel("com.techbusiness.rfid.event");
 
-  const ScannerServiceImpl(
-      {required this.uhfWrapper});
+  const ScannerServiceImpl({
+    required this.uhfWrapper,
+    required this.audioPool,
+  });
 
   // @override
   // Future<InstanceResponse> getInstance() async {
@@ -31,10 +36,10 @@ class ScannerServiceImpl implements ScannerService {
   Future<void> startScanning() async {
     // final startRes = await uhfWrapper.asyncStartScanning();
     // if (startRes.code == Code.success) {
-      final result = await uhfWrapper.tagInventoryRealTime();
-      if (result.code == Code.success) {
-        debugPrint(result.toString());
-      }
+    final result = await uhfWrapper.tagInventoryRealTime();
+    if (result.code == Code.success) {
+      debugPrint(result.toString());
+    }
     // }
   }
 
@@ -42,10 +47,10 @@ class ScannerServiceImpl implements ScannerService {
   Future<void> stopScanning() async {
     // final stopRes = await uhfWrapper.asyncStopScanning();
     // if (stopRes.code == Code.success) {
-      final result = await uhfWrapper.stopTagInventory();
-      if (result.code == Code.success) {
-        debugPrint(result.toString());
-      }
+    final result = await uhfWrapper.stopTagInventory();
+    if (result.code == Code.success) {
+      debugPrint(result.toString());
+    }
     // }
   }
 
@@ -70,5 +75,12 @@ class ScannerServiceImpl implements ScannerService {
     }, onError: (error) {
       debugPrint("Error in listening: $error");
     });
+  }
+
+  @override
+  Future<void> playScannerSound() async {
+    // final source = Assets.sound.scannerShort.replaceAll('assets/', '');
+    // final audioPlayer = await AudioPool.createFromAsset(path: source, maxPlayers: 1, audioCache: AudioCache.instance, minPlayers: 1);
+    await audioPool.start();
   }
 }
