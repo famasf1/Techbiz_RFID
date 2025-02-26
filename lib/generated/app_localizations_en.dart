@@ -48,6 +48,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get killTag => 'Kill Tag';
 
   @override
+  String get loginWithPin => 'Login with Pin';
+
+  @override
+  String get loginWithPinDescription => 'Please enter the pin code to login';
+
+  @override
   String get languageSetting => 'Language Setting';
 
   @override

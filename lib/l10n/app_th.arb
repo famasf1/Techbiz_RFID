@@ -53,6 +53,15 @@
         "description": "ปุ่มทำลาย Tag"
     },
     "killTag": "ทำลาย Tag",
+    "@_LOGIN" : {},
+    "@loginWithPin" : {
+        "description": "ชื่อปุ่มเข้าสู่ระบบด้วย Pin"
+    },
+    "loginWithPin": "เข้าสู่ระบบด้วย PIN",
+    "@loginWithPinDescription" : {
+        "description": "รายละเอียดสำหรับปุ่มเข้าสู่ระบบด้วย Pin"
+    },
+    "loginWithPinDescription": "โปรดกรอกหมายเลข PIN เพื่อเข้าสู่ระบบ",
     "@_SETTINGS" : {},
     "@languageSetting": {
         "description": "ชื่อส่วนการตั้งค่าภาษา"

@@ -48,6 +48,12 @@ class AppLocalizationsTh extends AppLocalizations {
   String get killTag => 'ทำลาย Tag';
 
   @override
+  String get loginWithPin => 'เข้าสู่ระบบด้วย PIN';
+
+  @override
+  String get loginWithPinDescription => 'โปรดกรอกหมายเลข PIN เพื่อเข้าสู่ระบบ';
+
+  @override
   String get languageSetting => 'ตั้งค่าภาษา';
 
   @override

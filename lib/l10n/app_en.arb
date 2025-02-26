@@ -53,6 +53,15 @@
         "description": "The title for kill tag"
     },
     "killTag": "Kill Tag",
+    "@_LOGIN" : {},
+    "@loginWithPin" : {
+        "description": "The title for login with pin"
+    },
+    "loginWithPin": "Login with Pin",
+    "@loginWithPinDescription" : {
+        "description": "The description for login with pin"
+    },
+    "loginWithPinDescription": "Please enter the pin code to login",
     "@_SETTINGS" : {},
     "@languageSetting": {
         "description": "The title for language setting"

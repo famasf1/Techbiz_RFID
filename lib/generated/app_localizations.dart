@@ -173,6 +173,18 @@ abstract class AppLocalizations {
   /// **'Kill Tag'**
   String get killTag;
 
+  /// The title for login with pin
+  ///
+  /// In en, this message translates to:
+  /// **'Login with Pin'**
+  String get loginWithPin;
+
+  /// The description for login with pin
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter the pin code to login'**
+  String get loginWithPinDescription;
+
   /// The title for language setting
   ///
   /// In en, this message translates to:

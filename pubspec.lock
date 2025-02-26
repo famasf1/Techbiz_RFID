@@ -775,7 +775,7 @@ packages:
     source: hosted
     version: "22.7.4"
   pinput:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: pinput
       sha256: "8a73be426a91fefec90a7f130763ca39772d547e92f19a827cf4aa02e323d35a"
