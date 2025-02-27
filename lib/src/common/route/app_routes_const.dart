@@ -5,4 +5,7 @@ class AppRoutesConst {
   static const String export = '/export';
   static const String scanner = '/scanner';
   static const String scannerSetting = '/scannerSetting';
+  static const String editTag = '/editTag';
+  static const String lockTag = '/lockTag';
+  static const String killTag = '/killTag';
 }

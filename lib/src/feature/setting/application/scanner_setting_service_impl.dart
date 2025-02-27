@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:techbiz_rfid/src/common/const/app_const.dart';
+import 'package:techbiz_rfid/src/common/domain/enum/app_status_code.dart';
 import 'package:techbiz_rfid/src/common/domain/return_response.dart';
 import 'package:techbiz_rfid/src/common/extensions/app_locale_extension.dart';
 import 'package:techbiz_rfid/src/common/wrapper/share_prefs_wrapper.dart';
@@ -50,6 +51,7 @@ class ScannerSettingServiceImpl implements ScannerSettingService {
             .message);
 
         throw ReturnResponse(
+          code: errorMessage["code"],
           statusCode: AppStatusCode.error,
           message: errorMessage["message"],
         );
@@ -63,7 +65,7 @@ class ScannerSettingServiceImpl implements ScannerSettingService {
   }
 
   Future<ScannerSetting?> _getUserLanguageSetting() async {
-    final language = await sharePrefs.getString(AppConfig.userLanguage);
+    final language = sharePrefs.getString(AppConfig.userLanguage);
 
     return ScannerSetting(
       language: language,

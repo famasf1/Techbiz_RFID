@@ -1,0 +1,4 @@
+enum AppStatusCode {
+  success,
+  error;
+}

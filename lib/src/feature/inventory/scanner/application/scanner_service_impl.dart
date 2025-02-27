@@ -9,7 +9,7 @@ import 'package:techbiz_rfid/src/feature/inventory/scanner/domain/interface/scan
 import 'package:uhf6_plugin/generated/uhf6_lib_api.g.dart';
 import 'package:uhf6_plugin/uhf6_plugin.dart';
 
-class ScannerServiceImpl implements ScannerService {
+class ScannerServiceImpl { //implements ScannerService {
   final IUhf6Plugin uhfWrapper;
   final AudioPoolWrapper audioPool;
   static const EventChannel eventChannel =

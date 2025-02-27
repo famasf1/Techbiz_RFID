@@ -71,7 +71,7 @@ class _HomepageViewState extends ConsumerState<HomepageView> {
                 MainMenuItem(
                   icon: FontAwesomeIcons.penToSquare,
                   title: context.translation.readWriteTag,
-                  onPressed: () => context.go(AppRoutesConst.import),
+                  onPressed: () => context.go(AppRoutesConst.editTag),
                 ),
                 MainMenuItem(
                   icon: FontAwesomeIcons.lock,

@@ -23,7 +23,6 @@ class GeneralPopUpError extends ConsumerWidget {
       title: Text(title),
       content: Text(content),
       actions: actions,
-      
     );
   }
 }

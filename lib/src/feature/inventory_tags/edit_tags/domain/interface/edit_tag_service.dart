@@ -1,21 +1,22 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:techbiz_rfid/src/common/wrapper/audio_pool_wrapper.dart';
+import 'package:techbiz_rfid/src/feature/inventory/scanner/domain/interface/scanner_service.dart';
 import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/application/edit_tag_service_impl.dart';
-import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/domain/edit_tag_data.dart';
-import 'package:uhf6_plugin/uhf6_plugin.dart';
+import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/domain/edit_tag_request_data.dart';
+import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/domain/edit_tag_response_data.dart';
 
 part 'edit_tag_service.g.dart';
 
-@riverpod 
+@riverpod
 EditTagService editTagService(Ref ref) {
-  final audioPool = ref.watch(audioPoolWrapperProvider);
-  final uhf6Plugin = ref.watch(uhf6PluginProvider);
+  final scannerService = ref.watch(scannerServiceProvider);
 
-  return EditTagServiceImpl(audioPool: audioPool, uhf6Plugin: uhf6Plugin);
+  return EditTagServiceImpl(audioPool: scannerService.audioPool, uhfWrapper: scannerService.uhfWrapper, scannerService: scannerService);
 }
 
-abstract interface class EditTagService {
-  Future<String?> readTag(EditTagData tagData);
-  Future<void> playScannerSound();
+abstract interface class EditTagService extends ScannerService {
+  EditTagService({required super.uhfWrapper, required super.audioPool});
+
+  Future<EditTagResponseData> readTag(EditTagRequestData tagData);
+  Future<bool?> writeTag(EditTagRequestData tagData);
 }

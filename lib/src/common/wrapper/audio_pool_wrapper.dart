@@ -14,7 +14,7 @@ AudioPoolWrapper audioPoolWrapper(Ref ref) {
 
 @Riverpod(keepAlive: true)
 Future<AudioPool> scannerAudioPool(Ref ref) async {
-  final source = Assets.sound.scannerShort.replaceAll('assets/', '');
+  final source = Assets.sound.scanner.replaceAll('assets/', '');
   return await AudioPool.createFromAsset(
     path: source,
     maxPlayers: 1,

@@ -1,27 +1,28 @@
-import 'package:techbiz_rfid/src/common/wrapper/audio_pool_wrapper.dart';
-import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/domain/edit_tag_data.dart';
+import 'package:techbiz_rfid/src/feature/inventory/scanner/domain/interface/scanner_service.dart';
+import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/domain/edit_tag_request_data.dart';
+import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/domain/edit_tag_response_data.dart';
 import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/domain/interface/edit_tag_service.dart';
-import 'package:uhf6_plugin/generated/uhf6_lib_api.g.dart';
-import 'package:uhf6_plugin/uhf6_plugin.dart';
 
-class EditTagServiceImpl implements EditTagService {
-  final AudioPoolWrapper audioPool;
-  final IUhf6Plugin uhf6Plugin;
-  const EditTagServiceImpl({required this.audioPool, required this.uhf6Plugin});
+class EditTagServiceImpl extends ScannerService implements EditTagService {
+  final ScannerService scannerService;
+  EditTagServiceImpl({required super.audioPool, required super.uhfWrapper, required this.scannerService});
 
   @override
-  Future<String?> readTag(EditTagData tagData) async {
-    
+  Future<EditTagResponseData> readTag(EditTagRequestData tagData) async {
     final params = tagData.toJson();
+    try {
+      final tagResult = await uhfWrapper.readTagInventoryEPC(params);
+      final result = EditTagResponseData(epcId: tagResult.tagInfoResult ?? "");
 
-    final result = await uhf6Plugin.readTagInventoryEPC(params);
-    if (result.code == Code.success) {
-      return result.tagInfoResult;
+      return result;
+    } catch (e) {
+      rethrow;
     }
   }
-
+  
   @override
-  Future<void> playScannerSound() async {
-    await audioPool.playScannerSound();
+  Future<bool?> writeTag(EditTagRequestData tagData) {
+    // TODO: implement writeTag
+    throw UnimplementedError();
   }
 }

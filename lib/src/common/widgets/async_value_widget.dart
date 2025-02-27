@@ -1,8 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:techbiz_rfid/src/common/domain/return_response.dart';
 import 'package:techbiz_rfid/src/common/extensions/app_locale_extension.dart';
+import 'package:techbiz_rfid/src/common/extensions/theme_extension.dart';
 import 'package:techbiz_rfid/src/common/widgets/general_popup_error.dart';
 
 ///Common Widget สำหรับแสดงผลข้อมูลจาก [AsyncValue]
@@ -40,26 +41,42 @@ class AsyncValueWidget<T> extends ConsumerWidget {
       data: data,
       error: error ??
           (e, st) {
-            WidgetsBinding.instance.addPostFrameCallback((_) async {
-              await showDialog(
-                context: context,
-                builder: (context) => GeneralPopUpError(
-                  title: context.translation.error,
-                  content: kDebugMode ? "${e.toString()} \n " : e.toString(),
-                  actions: [
-                    TextButton(
-                      onPressed: () => context.pop(),
-                      child: Text(context.translation.okTxt),
-                    )
-                  ],
-                ),
-              );
-            });
+            WidgetsBinding.instance.addPostFrameCallback(
+              (_) async {
+                await showDialog(
+                  barrierDismissible: false,
+                  context: context,
+                  builder: (context) {
+                    ReturnResponse? errRes;
+
+                    if (e is ReturnResponse) {
+                      errRes =
+                          ReturnResponse.fromJson(e as Map<String, dynamic>);
+                    }
+
+                    return GeneralPopUpError(
+                      title: errRes != null
+                          ? errRes.code
+                          : context.translation.error,
+                      content: errRes != null ? errRes.message : e.toString(),
+                      actions: [
+                        OutlinedButton(
+                          onPressed: () {
+                            context.pop();
+                          },
+                          child: Text(context.translation.okTxt,
+                              style: context.theme.textTheme.bodyMedium),
+                        )
+                      ],
+                    );
+                  },
+                );
+              },
+            );
 
             return SizedBox();
           },
-      loading: loading ??
-          () => CircularProgressIndicator.adaptive(),
+      loading: loading ?? () => CircularProgressIndicator.adaptive(),
     );
   }
 }

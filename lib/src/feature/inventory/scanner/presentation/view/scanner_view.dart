@@ -21,16 +21,11 @@ class _ScannerViewState extends ConsumerState<ScannerView> {
 
   Future<void> _initializeServiceInstance() async {
     final scannerService = ref.read(scannerServiceProvider);
-
-    // final instanceRes = await scannerService.getInstance();
-    // if (instanceRes.code == uhf6Plugin.Code.success) {
     await scannerService.listenScannerButtonClick();
-    // }
   }
 
   @override
   Widget build(BuildContext context) {
-    bool isStart = false;
     final scanDataState = ref.watch(scanDataStateProvider);
     final scannerService = ref.watch(scannerServiceProvider);
     final scanButtonState = ref.watch(scanButtonStateProvider);

@@ -156,30 +156,30 @@ class _ScannerSettingViewState extends ConsumerState<ScannerSettingView> {
       ],
     );
 
-    ref.listen(scannerSettingButtonStateProvider, (prev, next) {
-      if (next.hasError && prev!.hasError) {
-        WidgetsBinding.instance.addPostFrameCallback((_) async {
-                await showDialog(
-                  barrierDismissible: false,
-                  context: context,
-                  builder: (context) {
-                    return GeneralPopUpError(
-                      title: context.translation.error,
-                      content: next.error is ReturnResponse ? (next.error as ReturnResponse).message : next.error.toString(),
-                      actions: [
-                        OutlinedButton(
-                          onPressed: () {
-                            context.pop();
-                          },
-                          child: Text(context.translation.okTxt, style: context.theme.textTheme.bodyMedium),
-                        )
-                      ],
-                    );
-                  },
-                );
-              });
-      }
-    });
+    // ref.listen(scannerSettingButtonStateProvider, (prev, next) {
+    //   if (next.hasError && prev!.hasError) {
+    //     WidgetsBinding.instance.addPostFrameCallback((_) async {
+    //             await showDialog(
+    //               barrierDismissible: false,
+    //               context: context,
+    //               builder: (context) {
+    //                 return GeneralPopUpError(
+    //                   title: next.error is ReturnResponse ? (next.error as ReturnResponse).statusCode : context.translation.error,
+    //                   content: next.error is ReturnResponse ? (next.error as ReturnResponse).message : next.error.toString(),
+    //                   actions: [
+    //                     OutlinedButton(
+    //                       onPressed: () {
+    //                         context.pop();
+    //                       },
+    //                       child: Text(context.translation.okTxt, style: context.theme.textTheme.bodyMedium),
+    //                     )
+    //                   ],
+    //                 );
+    //               },
+    //             );
+    //           },);
+    //   }
+    // });
 
     return GeneralAppBar(
       appbarTitle: context.translation.scannerSetting,
@@ -211,7 +211,7 @@ class _ScannerSettingViewState extends ConsumerState<ScannerSettingView> {
                 ),
               ),
             ),
-            error: (e,st) => SizedBox(),
+            // error: (e,st) => SizedBox(),
           ),
         ],
       ),
