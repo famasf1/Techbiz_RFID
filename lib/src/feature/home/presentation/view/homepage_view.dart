@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:techbiz_rfid/src/common/extensions/app_locale_extension.dart';
 import 'package:techbiz_rfid/src/common/route/app_routes_const.dart';
 import 'package:techbiz_rfid/src/common/util/drawer_item.dart';
+import 'package:techbiz_rfid/src/feature/home/presentation/widget/main_menu_item.dart';
 
 class HomepageView extends ConsumerStatefulWidget {
   final String title;
@@ -99,35 +100,6 @@ class _HomepageViewState extends ConsumerState<HomepageView> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class MainMenuItem extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final VoidCallback onPressed;
-
-  const MainMenuItem({
-    super.key,
-    required this.icon,
-    required this.title,
-    required this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 100,
-      height: 100,
-      child: Column(
-        children: [
-        IconButton.outlined(
-          icon: FaIcon(icon),
-          onPressed: onPressed,
-        ),
-        Text(title),
-      ]),
     );
   }
 }

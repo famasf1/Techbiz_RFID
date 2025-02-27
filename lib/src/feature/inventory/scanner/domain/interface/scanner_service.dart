@@ -11,7 +11,6 @@ part 'scanner_service.g.dart';
 
 @riverpod
 ScannerService scannerService(Ref ref) {
-  // final uhfWrapper = ref.watch(uhfWrapperProvider);
   final uhf6Plugin = ref.watch(uhf6PluginProvider);
   final audioPool = ref.watch(scannerAudioPoolProvider).requireValue;
 
@@ -37,7 +36,6 @@ Future<AudioPool> scannerAudioPool(Ref ref) async {
 }
 
 abstract class ScannerService {
-  // Future<InstanceResponse> getInstance();
   Future<void> startScanning();
   Future<void> stopScanning();
   Future<HardwareResponse> getHardwareVersion();

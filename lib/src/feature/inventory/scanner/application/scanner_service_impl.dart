@@ -79,8 +79,6 @@ class ScannerServiceImpl implements ScannerService {
 
   @override
   Future<void> playScannerSound() async {
-    // final source = Assets.sound.scannerShort.replaceAll('assets/', '');
-    // final audioPlayer = await AudioPool.createFromAsset(path: source, maxPlayers: 1, audioCache: AudioCache.instance, minPlayers: 1);
     await audioPool.start();
   }
 }
