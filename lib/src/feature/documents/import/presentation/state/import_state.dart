@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:techbiz_rfid/src/feature/import/domain/interface/import_service.dart';
-import 'package:techbiz_rfid/src/feature/import/domain/stock_info.dart';
+import 'package:techbiz_rfid/src/feature/documents/import/domain/interface/import_service.dart';
+import 'package:techbiz_rfid/src/feature/documents/import/domain/stock_info.dart';
 
 part 'import_state.g.dart';
 

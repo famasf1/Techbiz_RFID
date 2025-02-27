@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pinput/pinput.dart';
 import 'package:techbiz_rfid/generated/assets.gen.dart';
 import 'package:techbiz_rfid/src/common/extensions/app_locale_extension.dart';
 import 'package:techbiz_rfid/src/common/extensions/theme_extension.dart';
@@ -13,10 +14,20 @@ class LoginView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final formKey = GlobalKey<FormState>();
+    final pinSnackBar = SnackBar(
+      duration: Duration(minutes: 1),
+      content: Pinput(
+        autofocus: true,
+        onTapOutside: (event) => ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+        controller: TextEditingController(),
+        onCompleted: (val) => context.go(AppRoutesConst.home),
+        obscureText: true,
+        errorText: context.translation.loginWithPinDescription,
+      ),
+    ); //Text(context.translation.loginWithPinDescription));
 
     return Scaffold(
-      resizeToAvoidBottomInset: true,
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(50.0),
         child: Form(
           key: formKey,
@@ -46,7 +57,7 @@ class LoginView extends ConsumerWidget {
               ElevatedButton.icon(
                 icon: FaIcon(FontAwesomeIcons.hashtagLock),
                 label: Text(context.translation.loginWithPin),
-                onPressed: () => context.go(AppRoutesConst.home),
+                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(pinSnackBar),
               ),
             ],
           ),

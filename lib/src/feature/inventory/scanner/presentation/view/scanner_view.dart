@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:techbiz_rfid/src/common/const/app_const.dart';
-import 'package:techbiz_rfid/src/feature/scanner/domain/enum/scan_code_enum.dart';
-import 'package:techbiz_rfid/src/feature/scanner/domain/interface/scanner_service.dart';
-import 'package:techbiz_rfid/src/feature/scanner/presentation/state/scanner_state.dart';
+import 'package:techbiz_rfid/src/feature/inventory/scanner/domain/enum/scan_code_enum.dart';
+import 'package:techbiz_rfid/src/feature/inventory/scanner/domain/interface/scanner_service.dart';
+import 'package:techbiz_rfid/src/feature/inventory/scanner/presentation/state/scanner_state.dart';
 
 class ScannerView extends ConsumerStatefulWidget {
   const ScannerView({super.key});

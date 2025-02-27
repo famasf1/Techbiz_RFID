@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:techbiz_rfid/generated/assets.gen.dart';
 import 'package:techbiz_rfid/src/common/domain/event_channel_response.dart';
-import 'package:techbiz_rfid/src/feature/scanner/application/scanner_service_impl.dart';
+import 'package:techbiz_rfid/src/feature/inventory/scanner/application/scanner_service_impl.dart';
 import 'package:uhf6_plugin/generated/uhf6_lib_api.g.dart';
 import 'package:uhf6_plugin/uhf6_plugin.dart';
 

@@ -2,9 +2,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:techbiz_rfid/src/common/wrapper/excel_wrapper.dart';
 import 'package:techbiz_rfid/src/common/wrapper/file_picker_wrapper.dart';
-import 'package:techbiz_rfid/src/feature/import/application/import_service_impl.dart';
-import 'package:techbiz_rfid/src/feature/import/domain/interface/import_repository.dart';
-import 'package:techbiz_rfid/src/feature/import/domain/stock_info.dart';
+import 'package:techbiz_rfid/src/feature/documents/import/application/import_service_impl.dart';
+import 'package:techbiz_rfid/src/feature/documents/import/domain/interface/import_repository.dart';
+import 'package:techbiz_rfid/src/feature/documents/import/domain/stock_info.dart';
 
 part 'import_service.g.dart';
 

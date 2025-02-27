@@ -1,9 +1,9 @@
 import 'package:excel/excel.dart';
 import 'package:techbiz_rfid/src/common/wrapper/excel_wrapper.dart';
 import 'package:techbiz_rfid/src/common/wrapper/file_picker_wrapper.dart';
-import 'package:techbiz_rfid/src/feature/import/domain/interface/import_repository.dart';
-import 'package:techbiz_rfid/src/feature/import/domain/interface/import_service.dart';
-import 'package:techbiz_rfid/src/feature/import/domain/stock_info.dart';
+import 'package:techbiz_rfid/src/feature/documents/import/domain/interface/import_repository.dart';
+import 'package:techbiz_rfid/src/feature/documents/import/domain/interface/import_service.dart';
+import 'package:techbiz_rfid/src/feature/documents/import/domain/stock_info.dart';
 
 class ImportServiceImpl implements ImportService {
   final FilePickerWrapper filePicker;

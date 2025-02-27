@@ -1,5 +1,5 @@
 import 'package:techbiz_rfid/src/common/db/app_database.dart';
-import 'package:techbiz_rfid/src/feature/scanner/domain/interface/scanner_repository.dart';
+import 'package:techbiz_rfid/src/feature/inventory/scanner/domain/interface/scanner_repository.dart';
 
 class ScannerRepositoryImpl implements ScannerRepository {
   @override

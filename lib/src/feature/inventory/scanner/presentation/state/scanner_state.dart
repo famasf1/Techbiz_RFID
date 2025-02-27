@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:techbiz_rfid/src/feature/scanner/domain/interface/scanner_service.dart';
-import 'package:techbiz_rfid/src/feature/scanner/domain/tag_info.dart';
+import 'package:techbiz_rfid/src/feature/inventory/scanner/domain/interface/scanner_service.dart';
+import 'package:techbiz_rfid/src/feature/inventory/scanner/domain/tag_info.dart';
 
 part 'scanner_state.g.dart';
 

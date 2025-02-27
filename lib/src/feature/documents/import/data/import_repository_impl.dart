@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart';
 import 'package:techbiz_rfid/src/common/db/app_database.dart';
-import 'package:techbiz_rfid/src/feature/import/domain/interface/import_repository.dart';
-import 'package:techbiz_rfid/src/feature/import/domain/stock_info.dart';
+import 'package:techbiz_rfid/src/feature/documents/import/domain/interface/import_repository.dart';
+import 'package:techbiz_rfid/src/feature/documents/import/domain/stock_info.dart';
 
 class ImportRepositoryImpl implements ImportRepository {
   final AppDatabase appDatabase;

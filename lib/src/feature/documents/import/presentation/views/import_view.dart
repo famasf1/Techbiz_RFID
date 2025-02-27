@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:techbiz_rfid/src/feature/import/domain/interface/import_service.dart';
-import 'package:techbiz_rfid/src/feature/import/presentation/state/import_state.dart';
+import 'package:techbiz_rfid/src/feature/documents/import/domain/interface/import_service.dart';
+import 'package:techbiz_rfid/src/feature/documents/import/presentation/state/import_state.dart';
 
 class ImportView extends ConsumerStatefulWidget {
   const ImportView({super.key});
