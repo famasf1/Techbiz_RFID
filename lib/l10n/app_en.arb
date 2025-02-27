@@ -99,5 +99,9 @@
         "description": "Description helper for frequency area setting"
     },
     "frequencyAreaSettingDescription" : "Select the frequency area you want to use (MHz).",
+    "@settingSavedSuccessfully" : {
+        "description": "The title for setting saved successfully"
+    },
+    "settingSavedSuccessfully" : "Setting saved successfully",
     "@_ERROR" : {}
 }

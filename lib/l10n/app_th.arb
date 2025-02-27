@@ -98,5 +98,9 @@
     "@frequencyAreaSettingDescription" : {
         "description": "รายละเอียดเกี่ยวกับการตั้งค่าชุดคลื่นความถี่"
     },
-    "frequencyAreaSettingDescription" : "เลือกคลื่นความถี่ที่ต้องการใช้ (MHz)"
+    "frequencyAreaSettingDescription" : "เลือกคลื่นความถี่ที่ต้องการใช้ (MHz)",
+    "@settingSavedSuccessfully" : {
+        "description": "ข้อความบอกว่าการตั้งค่าถูกบันทึกเรียบร้อยแล้ว"
+    },
+    "settingSavedSuccessfully" : "การตั้งค่าถูกบันทึกเรียบร้อยแล้ว"
 }

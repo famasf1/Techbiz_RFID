@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:techbiz_rfid/src/common/extensions/app_locale_extension.dart';
 import 'package:techbiz_rfid/src/common/route/app_routes_const.dart';
-import 'package:techbiz_rfid/src/common/util/drawer_item.dart';
+import 'package:techbiz_rfid/src/common/widgets/drawer_item.dart';
 import 'package:techbiz_rfid/src/feature/home/presentation/widget/main_menu_item.dart';
 
 class HomepageView extends ConsumerStatefulWidget {

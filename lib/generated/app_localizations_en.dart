@@ -79,4 +79,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get frequencyAreaSettingDescription => 'Select the frequency area you want to use (MHz).';
+
+  @override
+  String get settingSavedSuccessfully => 'Setting saved successfully';
 }

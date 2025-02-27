@@ -79,4 +79,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get frequencyAreaSettingDescription => 'เลือกคลื่นความถี่ที่ต้องการใช้ (MHz)';
+
+  @override
+  String get settingSavedSuccessfully => 'การตั้งค่าถูกบันทึกเรียบร้อยแล้ว';
 }

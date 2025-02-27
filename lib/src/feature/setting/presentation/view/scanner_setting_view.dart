@@ -44,6 +44,14 @@ class _ScannerSettingViewState extends ConsumerState<ScannerSettingView> {
 
   @override
   Widget build(BuildContext context) {
+    final successSnackbar = SnackBar(
+      duration: Duration(seconds: 3),
+      content: Text(context.translation.settingSavedSuccessfully),
+      action: SnackBarAction(
+        label: context.translation.okTxt,
+        onPressed: () {},
+      ),
+    );
     final List<String> languageList = ['English', 'Thai'];
     final List<FrequencyArea> frequencyAreaList = [
       FrequencyArea.RG_NONE,
@@ -191,6 +199,10 @@ class _ScannerSettingViewState extends ConsumerState<ScannerSettingView> {
                     await ref
                         .read(scannerSettingButtonStateProvider.notifier)
                         .onPressed();
+
+                    if (scannerSettingButtonState.hasValue && context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(successSnackbar);
+                    }
                   },
                   icon: FaIcon(
                     FontAwesomeIcons.floppyDisk,

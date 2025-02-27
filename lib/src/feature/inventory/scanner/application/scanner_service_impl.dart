@@ -1,17 +1,17 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:techbiz_rfid/src/common/domain/event_channel_response.dart';
+import 'package:techbiz_rfid/src/common/wrapper/audio_pool_wrapper.dart';
 import 'package:techbiz_rfid/src/feature/inventory/scanner/domain/interface/scanner_service.dart';
 import 'package:uhf6_plugin/generated/uhf6_lib_api.g.dart';
 import 'package:uhf6_plugin/uhf6_plugin.dart';
 
 class ScannerServiceImpl implements ScannerService {
   final IUhf6Plugin uhfWrapper;
-  final AudioPool audioPool;
+  final AudioPoolWrapper audioPool;
   static const EventChannel eventChannel =
       EventChannel("com.techbusiness.rfid.event");
 
@@ -19,12 +19,6 @@ class ScannerServiceImpl implements ScannerService {
     required this.uhfWrapper,
     required this.audioPool,
   });
-
-  // @override
-  // Future<InstanceResponse> getInstance() async {
-  //   final result = await uhfWrapper.initializingInstance();
-  //   return result;
-  // }
 
   @override
   Future<HardwareResponse> getHardwareVersion() async {
@@ -34,8 +28,6 @@ class ScannerServiceImpl implements ScannerService {
 
   @override
   Future<void> startScanning() async {
-    // final startRes = await uhfWrapper.asyncStartScanning();
-    // if (startRes.code == Code.success) {
     final result = await uhfWrapper.tagInventoryRealTime();
     if (result.code == Code.success) {
       debugPrint(result.toString());
@@ -45,13 +37,10 @@ class ScannerServiceImpl implements ScannerService {
 
   @override
   Future<void> stopScanning() async {
-    // final stopRes = await uhfWrapper.asyncStopScanning();
-    // if (stopRes.code == Code.success) {
     final result = await uhfWrapper.stopTagInventory();
     if (result.code == Code.success) {
       debugPrint(result.toString());
     }
-    // }
   }
 
   @override
@@ -79,6 +68,6 @@ class ScannerServiceImpl implements ScannerService {
 
   @override
   Future<void> playScannerSound() async {
-    await audioPool.start();
+    await audioPool.playScannerSound();
   }
 }

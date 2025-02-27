@@ -238,6 +238,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select the frequency area you want to use (MHz).'**
   String get frequencyAreaSettingDescription;
+
+  /// The title for setting saved successfully
+  ///
+  /// In en, this message translates to:
+  /// **'Setting saved successfully'**
+  String get settingSavedSuccessfully;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

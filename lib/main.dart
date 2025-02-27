@@ -4,8 +4,8 @@ import 'package:techbiz_rfid/generated/app_localizations.dart';
 import 'package:techbiz_rfid/src/common/extensions/app_locale_extension.dart';
 import 'package:techbiz_rfid/src/common/route/app_routes.dart';
 import 'package:techbiz_rfid/src/common/theme/techbiz_theme.dart';
+import 'package:techbiz_rfid/src/common/wrapper/audio_pool_wrapper.dart';
 import 'package:techbiz_rfid/src/common/wrapper/share_prefs_wrapper.dart';
-import 'package:techbiz_rfid/src/feature/inventory/scanner/domain/interface/scanner_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
