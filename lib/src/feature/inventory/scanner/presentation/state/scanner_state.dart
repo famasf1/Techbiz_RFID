@@ -36,7 +36,7 @@ class ScanButtonState extends _$ScanButtonState {
 
     switch (state) {
       case true:
-        await scannerService.startScanning();
+        await scannerService.startScanning(false);
       case false:
         await scannerService.stopScanning();
     }

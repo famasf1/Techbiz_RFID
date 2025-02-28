@@ -5,21 +5,30 @@ import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/domain/interfa
 
 class EditTagServiceImpl extends ScannerService implements EditTagService {
   final ScannerService scannerService;
-  EditTagServiceImpl({required super.audioPool, required super.uhfWrapper, required this.scannerService});
+  EditTagServiceImpl(
+      {required super.audioPool,
+      required super.uhfWrapper,
+      required this.scannerService});
 
   @override
-  Future<EditTagResponseData> readTag(EditTagRequestData tagData) async {
+  Future<EditTagResponseData> readTag(
+      EditTagRequestData tagData, bool isTid) async {
     final params = tagData.toJson();
     try {
-      final tagResult = await uhfWrapper.readTagInventoryEPC(params);
-      final result = EditTagResponseData(epcId: tagResult.tagInfoResult ?? "");
+      dynamic tagResult;
+      if (isTid) {
+        tagResult = await uhfWrapper.readTagInventoryTID(params);
+      } else {
+        tagResult = await uhfWrapper.readTagInventoryEPC(params);
+      }
+      final result = EditTagResponseData(tagId: tagResult.tagInfoResult ?? "");
 
       return result;
     } catch (e) {
       rethrow;
     }
   }
-  
+
   @override
   Future<bool?> writeTag(EditTagRequestData tagData) {
     // TODO: implement writeTag

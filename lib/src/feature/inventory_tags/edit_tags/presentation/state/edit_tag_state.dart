@@ -44,7 +44,6 @@ class EditTagRequestDataState extends _$EditTagRequestDataState {
     state = state.copyWith(tagId: tagId, accessPassword: password);
 
     await editTagResponse.updateTagResponse();
-    
   }
 }
 
@@ -56,12 +55,12 @@ class EditTagResponseDataState extends _$EditTagResponseDataState {
   }
 
   Future<void> updateTagResponse() async {
-    final editTagService = ref.watch(editTagServiceProvider);
-    final editTagRequest = ref.watch(editTagRequestDataStateProvider);
+    final editTagService = ref.read(editTagServiceProvider);
+    final editTagRequest = ref.read(editTagRequestDataStateProvider);
+    final editTagType = ref.read(editTagTypeStateProvider);
     state = const AsyncLoading();
     state =
-        await AsyncValue.guard(() => editTagService.readTag(editTagRequest));
-    ref.invalidateSelf();
+        await AsyncValue.guard(() => editTagService.readTag(editTagRequest, editTagType == "TID"));
   }
 }
 
@@ -74,13 +73,28 @@ class ScanButtonEditTagViewState extends _$ScanButtonEditTagViewState {
 
   FutureOr<void> onPressed() async {
     final editTagService = ref.watch(editTagServiceProvider);
+    final editTagTypeState = ref.read(editTagTypeStateProvider);
     state = !state;
 
     switch (state) {
       case true:
-        await editTagService.startScanning();
+        await editTagService.startScanning(editTagTypeState == "TID");
       case false:
         await editTagService.stopScanning();
     }
+  }
+}
+
+@riverpod
+class EditTagTypeState extends _$EditTagTypeState {
+  List<String> get epcListItem => ["EPC", "TID"];
+
+  @override
+  String build() {
+    return epcListItem.first;
+  }
+
+  onSelected(String value) {
+    state = value;
   }
 }

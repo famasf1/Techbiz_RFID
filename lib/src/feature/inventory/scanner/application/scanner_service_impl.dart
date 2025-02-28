@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:techbiz_rfid/src/common/domain/event_channel_response.dart';
 import 'package:techbiz_rfid/src/common/wrapper/audio_pool_wrapper.dart';
-import 'package:techbiz_rfid/src/feature/inventory/scanner/domain/interface/scanner_service.dart';
 import 'package:uhf6_plugin/generated/uhf6_lib_api.g.dart';
 import 'package:uhf6_plugin/uhf6_plugin.dart';
 
@@ -27,8 +26,8 @@ class ScannerServiceImpl { //implements ScannerService {
   }
 
   @override
-  Future<void> startScanning() async {
-    final result = await uhfWrapper.tagInventoryRealTime();
+  Future<void> startScanning(bool isTID) async {
+    final result = await uhfWrapper.tagInventoryRealTime(isTID);
     if (result.code == Code.success) {
       debugPrint(result.toString());
     }

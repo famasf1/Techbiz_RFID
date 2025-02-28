@@ -11,12 +11,15 @@ part 'edit_tag_service.g.dart';
 EditTagService editTagService(Ref ref) {
   final scannerService = ref.watch(scannerServiceProvider);
 
-  return EditTagServiceImpl(audioPool: scannerService.audioPool, uhfWrapper: scannerService.uhfWrapper, scannerService: scannerService);
+  return EditTagServiceImpl(
+      audioPool: scannerService.audioPool,
+      uhfWrapper: scannerService.uhfWrapper,
+      scannerService: scannerService);
 }
 
 abstract interface class EditTagService extends ScannerService {
   EditTagService({required super.uhfWrapper, required super.audioPool});
 
-  Future<EditTagResponseData> readTag(EditTagRequestData tagData);
+  Future<EditTagResponseData> readTag(EditTagRequestData tagData, bool isTid);
   Future<bool?> writeTag(EditTagRequestData tagData);
 }

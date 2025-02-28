@@ -42,8 +42,8 @@ class ScannerService {
     return result;
   }
 
-  Future<void> startScanning() async {
-    final result = await uhfWrapper.tagInventoryRealTime();
+  Future<void> startScanning(bool isTID) async {
+    final result = await uhfWrapper.tagInventoryRealTime(isTID);
     if (result.code == Code.success) {
       debugPrint(result.toString());
     }

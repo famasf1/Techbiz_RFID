@@ -6,7 +6,7 @@ part 'edit_tag_response_data.g.dart';
 @freezed
 sealed class EditTagResponseData with _$EditTagResponseData {
   const factory EditTagResponseData({
-    @Default("") String epcId,
+    @Default("") String tagId,
   }) = _EditTagResponseData;
 
   const EditTagResponseData._();
