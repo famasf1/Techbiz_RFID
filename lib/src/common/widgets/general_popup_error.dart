@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:techbiz_rfid/src/common/extensions/app_locale_extension.dart';
 
 ///Common Widget สำหรับแสดงผลข้อมูลจาก
 ///
@@ -22,7 +24,7 @@ class GeneralPopUpError extends ConsumerWidget {
     return AlertDialog(
       title: Text(title),
       content: Text(content),
-      actions: actions,
+      actions: actions ?? [ElevatedButton(onPressed: () => context.pop(), child: Text(context.translation.okTxt))],
     );
   }
 }

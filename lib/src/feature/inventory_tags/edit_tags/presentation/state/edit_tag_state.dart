@@ -45,6 +45,21 @@ class EditTagRequestDataState extends _$EditTagRequestDataState {
 
     await editTagResponse.updateTagResponse();
   }
+
+  Future<void> updateTagFromTextField(String newTagId) async {
+    state = state.copyWith(tagId: newTagId);
+  }
+
+  Future<void> writeTag() async {
+    final editTagService = ref.watch(editTagServiceProvider);
+    await editTagService.writeTag(state);
+  }
+
+  Future<void> writeTagWithPassword(String password) async {
+    final editTagService = ref.watch(editTagServiceProvider);
+    state = state.copyWith(accessPassword: password);
+    await editTagService.writeTag(state);
+  }
 }
 
 @riverpod

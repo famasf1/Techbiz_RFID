@@ -7,6 +7,7 @@ import 'package:techbiz_rfid/src/common/extensions/app_locale_extension.dart';
 import 'package:techbiz_rfid/src/common/extensions/theme_extension.dart';
 import 'package:techbiz_rfid/src/common/widgets/async_value_widget.dart';
 import 'package:techbiz_rfid/src/common/widgets/general_appbar.dart';
+import 'package:techbiz_rfid/src/common/widgets/general_popup_error.dart';
 import 'package:techbiz_rfid/src/feature/inventory/scanner/domain/enum/scan_code_enum.dart';
 import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/domain/interface/edit_tag_service.dart';
 import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/presentation/state/edit_tag_state.dart';
@@ -39,9 +40,9 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
     final editTagResponse = ref.watch(editTagResponseDataStateProvider);
     final editTagTypeState = ref.watch(editTagTypeStateProvider);
     final editTagList = ref.read(editTagTypeStateProvider.notifier).epcListItem;
-    final bool isTid = editTagTypeState == "TID";
-    // final TextEditingController _textEditingController =
-    //     TextEditingController();
+    final bool isTid = editTagTypeState == TagType.TID;
+    final TextEditingController _textEditingController =
+        TextEditingController();
 
     Future<void> showEditTagDialog(BuildContext context, String epcId) async {
       await showDialog(
@@ -49,7 +50,8 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
         builder: (context) => AlertDialog(
           title: Text("Edit Tag"),
           content: TextFormField(
-            // controller: _textEditingController,
+            controller: _textEditingController,
+            onChanged: (value) async => await ref.read(editTagRequestDataStateProvider.notifier).updateTagFromTextField(value),
             decoration:
                 const InputDecoration(hintText: "Enter New Tag/Product Code"),
             showCursor: true,
@@ -57,7 +59,7 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
           ),
           actions: [
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () async => await ref.read(editTagRequestDataStateProvider.notifier).writeTag(),
               child: Text(context.translation.okTxt),
             ),
             ElevatedButton(
@@ -67,6 +69,14 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
           ],
         ),
       );
+    }
+
+    Future<void> showErrorTIDDialog(BuildContext context) {
+      return showDialog(
+          context: context,
+          builder: (context) => GeneralPopUpError(
+              title: context.translation.error,
+              content: "Cannot edit TID Tag"));
     }
 
     editTagService.startListening((data) async {
@@ -114,8 +124,16 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
                 ),
                 DropdownButton<String>(
                   value: editTagTypeState,
-                  onChanged: (value) => ref.read(editTagTypeStateProvider.notifier).onSelected(value!),
-                  items: editTagList.map<DropdownMenuItem<String>>((String value) {
+                  onChanged: scanButtonEditTagViewState ? null : (value) {
+                    ref
+                        .read(editTagTypeStateProvider.notifier)
+                        .onSelected(value!);
+
+                    ref.invalidate(scanTagInfoStateProvider);
+                    ref.invalidate(editTagResponseDataStateProvider);
+                  },
+                  items:
+                      editTagList.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
@@ -183,8 +201,9 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
                 replacement: SizedBox(
                     height: 100, child: Center(child: Text("No Data"))),
                 child: GestureDetector(
-                  onLongPress: () async =>
-                      showEditTagDialog(context, epc.tagId),
+                  onLongPress: () async => isTid
+                      ? await showErrorTIDDialog(context)
+                      : await showEditTagDialog(context, epc.tagId),
                   child: Container(
                     padding: const EdgeInsets.all(12),
                     child: Card(
@@ -195,12 +214,15 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                                padding: const EdgeInsets.all(15),
-                                alignment: Alignment.center,
-                                child: Image.network(
-                                    "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg")),
+                              padding: const EdgeInsets.all(15),
+                              alignment: Alignment.center,
+                              child: Image.network(
+                                  "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg"),
+                            ),
                             _ProductCardItem(
-                              headerKey: editTagTypeState == "TID" ? "TID" : "EPC ID",
+                              headerKey: editTagTypeState == TagType.TID
+                                  ? "TID"
+                                  : "EPC ID",
                               text: epc.tagId,
                             ),
                             _ProductCardItem(
