@@ -33,6 +33,10 @@
         "description": "The title for login"
     },
     "login": "Login",
+    "@cancelTxt" : {
+        "description": "The title for cancel button"
+    },
+    "cancelTxt": "Cancel",
     "@importData" : {
         "description": "The title for import data"
     },
@@ -103,5 +107,40 @@
         "description": "The title for setting saved successfully"
     },
     "settingSavedSuccessfully" : "Setting saved successfully",
-    "@_ERROR" : {}
+    "@_ERROR" : {},
+    "@noData" : {
+        "description": "No Data message"
+    },
+    "noData" : "No Data",
+    "@_SCANNER" : {},
+    "@selectTag" : {
+        "description": "Text to tell user to select tag from menu below"
+    },
+    "selectTag" : "Select Tag",
+    "@startScanning" : {
+        "description": "Text to tell user to start scanning"
+    },
+    "startScanning" : "Start Scanning",
+    "@stopScanning" : {
+        "description": "Text to tell user to stop scanning"
+    },
+    "stopScanning" : "Stop Scanning",
+    "@_EDIT_TAG": {},
+    "@editTag" : {
+        "description": "Title of the page for editing tag"
+    },
+    "editTag": "Edit Tag",
+    "@editTagHint" : {
+        "description": "Hint for edit tag"
+    },
+    "editTagHint": "Please Enter New Tag/Product Code",
+    "@errorCannotEditTidTag" : {
+        "description": "Error message for cannot edit TID tag"
+    },
+    "errorCannotEditTidTag": "Cannot edit TID Tag",
+    "@_LOCK_TAG" : {},
+    "@lockTag" : {
+        "description": "Title of the page for locking tag"
+    },
+    "lockTag" : "Lock Tag"
 }

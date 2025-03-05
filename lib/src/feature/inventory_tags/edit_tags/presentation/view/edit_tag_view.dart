@@ -33,14 +33,14 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
 
   @override
   Widget build(BuildContext context) {
-    final tagInfoList = ref.watch(scanTagInfoStateProvider);
+    final tagInfoList = ref.watch(editTagInfoStateProvider);
     final scanButtonEditTagViewState =
         ref.watch(scanButtonEditTagViewStateProvider);
     final editTagService = ref.watch(editTagServiceProvider);
     final editTagResponse = ref.watch(editTagResponseDataStateProvider);
     final editTagTypeState = ref.watch(editTagTypeStateProvider);
     final editTagList = ref.read(editTagTypeStateProvider.notifier).epcListItem;
-    final bool isTid = editTagTypeState == TagType.TID;
+    final bool isTid = editTagTypeState == TagTypeConst.TID;
     final TextEditingController _textEditingController =
         TextEditingController();
 
@@ -48,23 +48,27 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
       await showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text("Edit Tag"),
+          title: Text(context.translation.editTag),
           content: TextFormField(
             controller: _textEditingController,
-            onChanged: (value) async => await ref.read(editTagRequestDataStateProvider.notifier).updateTagFromTextField(value),
+            onChanged: (value) async => await ref
+                .read(editTagRequestDataStateProvider.notifier)
+                .updateTagFromTextField(value),
             decoration:
-                const InputDecoration(hintText: "Enter New Tag/Product Code"),
+                InputDecoration(hintText: context.translation.editTagHint),
             showCursor: true,
             initialValue: epcId,
           ),
           actions: [
             ElevatedButton(
-              onPressed: () async => await ref.read(editTagRequestDataStateProvider.notifier).writeTag(),
+              onPressed: () async => await ref
+                  .read(editTagRequestDataStateProvider.notifier)
+                  .writeTag(),
               child: Text(context.translation.okTxt),
             ),
             ElevatedButton(
               onPressed: () => context.pop(),
-              child: Text("Cancel"),
+              child: Text(context.translation.cancelTxt),
             ),
           ],
         ),
@@ -76,7 +80,7 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
           context: context,
           builder: (context) => GeneralPopUpError(
               title: context.translation.error,
-              content: "Cannot edit TID Tag"));
+              content: context.translation.errorCannotEditTidTag));
     }
 
     editTagService.startListening((data) async {
@@ -100,8 +104,8 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
           if (data.payload is List) {
             final tagInfoList = data.payload as List;
             if (tagInfoList.isNotEmpty) {
-              ref.read(scanTagInfoStateProvider.notifier).addData(tagInfoList);
-              ref.read(scanTagInfoStateProvider.notifier).playSound();
+              ref.read(editTagInfoStateProvider.notifier).addData(tagInfoList);
+              ref.read(editTagInfoStateProvider.notifier).playSound();
             }
           }
         default:
@@ -110,7 +114,7 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
     });
 
     return GeneralAppBar(
-      appbarTitle: "Edit Tag",
+      appbarTitle: context.translation.editTag,
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -118,20 +122,22 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
-                  "Select Tag",
+                  context.translation.selectTag,
                   textAlign: TextAlign.start,
                   style: context.theme.textTheme.headlineSmall,
                 ),
                 DropdownButton<String>(
                   value: editTagTypeState,
-                  onChanged: scanButtonEditTagViewState ? null : (value) {
-                    ref
-                        .read(editTagTypeStateProvider.notifier)
-                        .onSelected(value!);
+                  onChanged: scanButtonEditTagViewState
+                      ? null
+                      : (value) {
+                          ref
+                              .read(editTagTypeStateProvider.notifier)
+                              .onSelected(value!);
 
-                    ref.invalidate(scanTagInfoStateProvider);
-                    ref.invalidate(editTagResponseDataStateProvider);
-                  },
+                          ref.invalidate(editTagInfoStateProvider);
+                          ref.invalidate(editTagResponseDataStateProvider);
+                        },
                   items:
                       editTagList.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
@@ -153,7 +159,7 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
               width: MediaQuery.of(context).size.width,
               child: Visibility(
                 visible: tagInfoList.isNotEmpty,
-                replacement: Center(child: Text("No Data")),
+                replacement: Center(child: Text(context.translation.noData)),
                 child: ListView.builder(
                   itemCount: tagInfoList.length,
                   itemBuilder: (context, index) {
@@ -182,14 +188,14 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
                   onPressed: () => ref
                       .read(scanButtonEditTagViewStateProvider.notifier)
                       .onPressed(),
-                  label: Text("Start Scanning"),
+                  label: Text(context.translation.startScanning),
                   icon: FaIcon(FontAwesomeIcons.scannerGun),
                 ),
                 child: FilledButton.icon(
                   onPressed: () => ref
                       .read(scanButtonEditTagViewStateProvider.notifier)
                       .onPressed(),
-                  label: Text("Stop Scanning"),
+                  label: Text(context.translation.stopScanning),
                   icon: FaIcon(FontAwesomeIcons.stop),
                 ),
               ),
@@ -199,7 +205,11 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
               data: (epc) => Visibility(
                 visible: epc.tagId.isNotEmpty,
                 replacement: SizedBox(
-                    height: 100, child: Center(child: Text("No Data"))),
+                  height: 100,
+                  child: Center(
+                    child: Text(context.translation.noData),
+                  ),
+                ),
                 child: GestureDetector(
                   onLongPress: () async => isTid
                       ? await showErrorTIDDialog(context)
@@ -220,7 +230,7 @@ class _EditTagViewState extends ConsumerState<EditTagView> {
                                   "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg"),
                             ),
                             _ProductCardItem(
-                              headerKey: editTagTypeState == TagType.TID
+                              headerKey: editTagTypeState == TagTypeConst.TID
                                   ? "TID"
                                   : "EPC ID",
                               text: epc.tagId,

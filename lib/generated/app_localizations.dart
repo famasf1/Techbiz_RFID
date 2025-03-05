@@ -143,6 +143,12 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get login;
 
+  /// The title for cancel button
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancelTxt;
+
   /// The title for import data
   ///
   /// In en, this message translates to:
@@ -161,7 +167,7 @@ abstract class AppLocalizations {
   /// **'Read/Write Tag'**
   String get readWriteTag;
 
-  /// The title for lock tag
+  /// Title of the page for locking tag
   ///
   /// In en, this message translates to:
   /// **'Lock Tag'**
@@ -244,6 +250,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Setting saved successfully'**
   String get settingSavedSuccessfully;
+
+  /// No Data message
+  ///
+  /// In en, this message translates to:
+  /// **'No Data'**
+  String get noData;
+
+  /// Text to tell user to select tag from menu below
+  ///
+  /// In en, this message translates to:
+  /// **'Select Tag'**
+  String get selectTag;
+
+  /// Text to tell user to start scanning
+  ///
+  /// In en, this message translates to:
+  /// **'Start Scanning'**
+  String get startScanning;
+
+  /// Text to tell user to stop scanning
+  ///
+  /// In en, this message translates to:
+  /// **'Stop Scanning'**
+  String get stopScanning;
+
+  /// Title of the page for editing tag
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Tag'**
+  String get editTag;
+
+  /// Hint for edit tag
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter New Tag/Product Code'**
+  String get editTagHint;
+
+  /// Error message for cannot edit TID tag
+  ///
+  /// In en, this message translates to:
+  /// **'Cannot edit TID Tag'**
+  String get errorCannotEditTidTag;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

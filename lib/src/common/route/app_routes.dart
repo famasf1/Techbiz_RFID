@@ -5,6 +5,7 @@ import 'package:techbiz_rfid/src/feature/documents/export/presentation/view/expo
 import 'package:techbiz_rfid/src/feature/home/presentation/view/homepage_view.dart';
 import 'package:techbiz_rfid/src/feature/documents/import/presentation/views/import_view.dart';
 import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/presentation/view/edit_tag_view.dart';
+import 'package:techbiz_rfid/src/feature/inventory_tags/lock_tag/presentation/view/lock_tag_view.dart';
 import 'package:techbiz_rfid/src/feature/login/presentation/view/login_view.dart';
 import 'package:techbiz_rfid/src/feature/inventory/scanner/presentation/view/scanner_view.dart';
 import 'package:techbiz_rfid/src/feature/setting/presentation/view/scanner_setting_view.dart';
@@ -52,6 +53,11 @@ final appRoutes = GoRouter(
           name: 'editTag',
           path: AppRoutesConst.editTag,
           builder: (context, state) => EditTagView(),
+        ),
+        GoRoute(
+          name: 'lockTag',
+          path: AppRoutesConst.lockTag,
+          builder: (context, state) => LockTagView(),
         ),
       ],
     ),

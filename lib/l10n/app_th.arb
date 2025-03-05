@@ -33,6 +33,10 @@
         "description": "ชื่อปุ่มเข้าสู่ระบบ"
     },
     "login": "เข้าสู่ระบบ",
+    "@cancelTxt" : {
+        "description": "ชื่อปุ่มยกเลิกรายการ"
+    },
+    "cancelTxt": "ยกเลิก",
     "@importData" : {
         "description": "ปุ่มนำเข้าข้อมูล"
     },
@@ -102,5 +106,41 @@
     "@settingSavedSuccessfully" : {
         "description": "ข้อความบอกว่าการตั้งค่าถูกบันทึกเรียบร้อยแล้ว"
     },
-    "settingSavedSuccessfully" : "การตั้งค่าถูกบันทึกเรียบร้อยแล้ว"
+    "settingSavedSuccessfully" : "การตั้งค่าถูกบันทึกเรียบร้อยแล้ว",
+    "@_ERROR" : {},
+    "@noData" : {
+        "description": "ข้อความบอกว่าไม่มีข้อมูล"
+    },
+    "noData" : "ไม่มีข้อมูล",
+    "@_SCANNER" : {},
+    "@selectTag" : {
+        "description": "ข้อความบอกให้ผู้ใช้เลือกแท็กจากรายการด้านล่าง"
+    },
+    "selectTag" : "เลือก Tag",
+    "@startScanning" : {
+        "description": "ข้อความบอกให้ผู้ใช้เริ่มการสแกน"
+    },
+    "startScanning" : "เริ่มสแกน",
+    "@stopScanning" : {
+        "description": "ข้อความบอกให้ผู้ใช้หยุดการสแกน"
+    },
+    "stopScanning" : "หยุดสแกน",
+    "@_EDIT_TAG": {},
+    "@editTag" : {
+        "description": "ชื่อหน้าแก้ไขข้อมูล Tag"
+    },
+    "editTag": "แก้ไขข้อมูล Tag",
+    "@editTagHint" : {
+        "description": "คำแนะนำสำหรับแก้ไขข้อมูล Tag"
+    },
+    "editTagHint": "โปรดกรอกข้อมูล Tag/รหัสผลิตภัณฑ์ใหม่",
+    "@errorCannotEditTidTag" : {
+        "description": "ข้อความแจ้งเตือนว่าไม่สามารถแก้ไขข้อมูล TID Tag ได้"
+    },
+    "errorCannotEditTidTag": "ไม่สามารถแก้ไขข้อมูล TID Tag ได้",
+    "@_LOCK_TAG" : {},
+    "@lockTag" : {
+        "description": "ชื่อหน้าล็อคข้อมูล Tag"
+    },
+    "lockTag" : "ล็อค Tag"
 }

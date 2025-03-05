@@ -33,6 +33,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'Login';
 
   @override
+  String get cancelTxt => 'Cancel';
+
+  @override
   String get importData => 'Import Data';
 
   @override
@@ -82,4 +85,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingSavedSuccessfully => 'Setting saved successfully';
+
+  @override
+  String get noData => 'No Data';
+
+  @override
+  String get selectTag => 'Select Tag';
+
+  @override
+  String get startScanning => 'Start Scanning';
+
+  @override
+  String get stopScanning => 'Stop Scanning';
+
+  @override
+  String get editTag => 'Edit Tag';
+
+  @override
+  String get editTagHint => 'Please Enter New Tag/Product Code';
+
+  @override
+  String get errorCannotEditTidTag => 'Cannot edit TID Tag';
 }

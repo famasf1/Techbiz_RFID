@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:techbiz_rfid/src/common/const/app_const.dart';
 
 part 'lock_tag_request.freezed.dart';
 part 'lock_tag_request.g.dart';
@@ -6,10 +7,10 @@ part 'lock_tag_request.g.dart';
 @freezed 
 sealed class LockTagRequest with _$LockTagRequest {
   const factory LockTagRequest({
-    required String epcTag,
-    required String setPassword,
-    required LockType lockType,
-    required LockObject lockObj,
+    @Default("") String epcTag,
+    @Default(AppConfig.defaultAccessPassword) String setPassword,
+    @Default(null) LockType? lockType,
+    @Default(null) LockObject? lockObj,
   }) = _LockTagRequest;
 
   const LockTagRequest._();

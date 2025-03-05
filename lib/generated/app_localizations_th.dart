@@ -33,6 +33,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get login => 'เข้าสู่ระบบ';
 
   @override
+  String get cancelTxt => 'ยกเลิก';
+
+  @override
   String get importData => 'นำเข้าข้อมูล';
 
   @override
@@ -82,4 +85,25 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get settingSavedSuccessfully => 'การตั้งค่าถูกบันทึกเรียบร้อยแล้ว';
+
+  @override
+  String get noData => 'ไม่มีข้อมูล';
+
+  @override
+  String get selectTag => 'เลือก Tag';
+
+  @override
+  String get startScanning => 'เริ่มสแกน';
+
+  @override
+  String get stopScanning => 'หยุดสแกน';
+
+  @override
+  String get editTag => 'แก้ไขข้อมูล Tag';
+
+  @override
+  String get editTagHint => 'โปรดกรอกข้อมูล Tag/รหัสผลิตภัณฑ์ใหม่';
+
+  @override
+  String get errorCannotEditTidTag => 'ไม่สามารถแก้ไขข้อมูล TID Tag ได้';
 }

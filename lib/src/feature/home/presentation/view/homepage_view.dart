@@ -76,7 +76,7 @@ class _HomepageViewState extends ConsumerState<HomepageView> {
                 MainMenuItem(
                   icon: FontAwesomeIcons.lock,
                   title: context.translation.lockTag,
-                  onPressed: () => context.go(AppRoutesConst.scanner),
+                  onPressed: () => context.go(AppRoutesConst.lockTag),
                 ),
                 MainMenuItem(
                   icon: FontAwesomeIcons.trashSlash,

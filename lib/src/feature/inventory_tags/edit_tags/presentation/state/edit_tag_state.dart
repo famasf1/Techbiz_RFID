@@ -1,4 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:techbiz_rfid/src/common/const/app_const.dart';
 import 'package:techbiz_rfid/src/common/domain/tags/tag_info.dart';
 import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/domain/edit_tag_request_data.dart';
 import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/domain/edit_tag_response_data.dart';
@@ -7,7 +8,7 @@ import 'package:techbiz_rfid/src/feature/inventory_tags/edit_tags/domain/interfa
 part 'edit_tag_state.g.dart';
 
 @riverpod
-class ScanTagInfoState extends _$ScanTagInfoState {
+class EditTagInfoState extends _$EditTagInfoState {
   @override
   List<TagInfo> build() {
     return List.empty(growable: true);
@@ -75,7 +76,7 @@ class EditTagResponseDataState extends _$EditTagResponseDataState {
     final editTagType = ref.read(editTagTypeStateProvider);
     state = const AsyncLoading();
     state =
-        await AsyncValue.guard(() => editTagService.readTag(editTagRequest, editTagType == "TID"));
+        await AsyncValue.guard(() => editTagService.readTag(editTagRequest, editTagType == TagTypeConst.TID));
   }
 }
 
@@ -93,7 +94,7 @@ class ScanButtonEditTagViewState extends _$ScanButtonEditTagViewState {
 
     switch (state) {
       case true:
-        await editTagService.startScanning(editTagTypeState == "TID");
+        await editTagService.startScanning(editTagTypeState == TagTypeConst.TID);
       case false:
         await editTagService.stopScanning();
     }
@@ -102,7 +103,7 @@ class ScanButtonEditTagViewState extends _$ScanButtonEditTagViewState {
 
 @riverpod
 class EditTagTypeState extends _$EditTagTypeState {
-  List<String> get epcListItem => ["EPC", "TID"];
+  List<String> get epcListItem => [TagTypeConst.EPC, TagTypeConst.TID];
 
   @override
   String build() {
